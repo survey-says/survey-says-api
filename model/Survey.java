@@ -42,6 +42,9 @@ public class Survey {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "restriction_id")
 	private Restriction restriction;
+	
+	//
+	private Set(Question) questions;
 
 	public Survey() {
 		super();
