@@ -1,5 +1,11 @@
 package com.revature.model;
 
+<<<<<<< HEAD
+=======
+import java.util.HashSet;
+import java.util.Set;
+
+>>>>>>> 9dbdbb18f8c541c144d32106165017b248783e38
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
