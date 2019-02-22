@@ -31,6 +31,7 @@ public class Survey {
 	@JoinColumn(name = "user_id")
 	private User creator;
 	
+	private String title;
 	private String description;
 	private Date creationDate;
 	private Date expirationDate;
