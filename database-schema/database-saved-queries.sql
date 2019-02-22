@@ -1,15 +1,15 @@
-select * from survey_says.survey_user;
+select * from survey_says.users;
 
-select * from survey_says.survey_role;
+select * from survey_says.roles;
 
-select * from survey_says.survey;
+select * from survey_says.surveys;
 
-select * from survey_says.survey_privacy;
+select * from survey_says.restrictions;
 
-select * from survey_says.survey_status;
+select * from survey_says.status;
 
-select * from survey_says.question;
+select * from survey_says.questions;
 
-select * from survey_says.answer_choice;
+select * from survey_says.answers;
 
-select * from survey_says.response;
+select * from survey_says.responses;
