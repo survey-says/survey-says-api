@@ -1,0 +1,25 @@
+server:
+  port: 5500
+ 
+spring:
+  application:
+    name: survey-says
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    initialization-mode: NEVER
+    password: allow
+    url: jdbc:postgresql://localhost:5433/sample_db
+    username: postgres
+    
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        default_schema: survey_says
+    show-sql: false
+    
+
