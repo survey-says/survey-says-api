@@ -43,4 +43,10 @@ public class SurveyUserServiceImpl implements SurveyUserService{
 		return surveyUserRepo.getOne(id);
 	}
 
+	@Override
+	public SurveyUser findByUsernameAndPassword(String username, String password) {
+		// TODO Auto-generated method stub
+		return surveyUserRepo.findByUsernameAndPassword(username, password);
+	}
+
 }

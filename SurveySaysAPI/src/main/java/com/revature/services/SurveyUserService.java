@@ -10,4 +10,5 @@ public interface SurveyUserService {
 	
 	List<SurveyUser> findAll();
 	SurveyUser findById(int id);
+	SurveyUser findByUsernameAndPassword(String username, String password);
 }
