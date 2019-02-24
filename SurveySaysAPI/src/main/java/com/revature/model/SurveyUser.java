@@ -23,22 +23,25 @@ public class SurveyUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int userId;
+	
 	private String username;
 	private String password;
+	
 	@Column(name = "first_name")
 	private String firstName;
+	
 	@Column(name = "last_name")
 	private String lastName;
+	
 	private String email;
-	private int role; // should be Role object?
+//	private int role; // should be Role object?
 	
 	public SurveyUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public SurveyUser(int userId, String username, String password, String firstName, String lastName, String email,
-			int role) {
+	public SurveyUser(int userId, String username, String password, String firstName, String lastName, String email) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -46,7 +49,7 @@ public class SurveyUser {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.role = role;
+//		this.role = role;
 	}
 
 	/**
@@ -136,16 +139,16 @@ public class SurveyUser {
 	/**
 	 * @return the role
 	 */
-	public int getRole() {
+/*	public int getRole() {
 		return role;
-	}
+	}*/
 
 	/**
 	 * @param role the role to set
 	 */
-	public void setRole(int role) {
+/*	public void setRole(int role) {
 		this.role = role;
-	}
+	}*/
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -158,7 +161,7 @@ public class SurveyUser {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + role;
+//		result = prime * result + role;
 		result = prime * result + userId;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -196,8 +199,8 @@ public class SurveyUser {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		if (role != other.role)
-			return false;
+		/*if (role != other.role)
+			return false;*/
 		if (userId != other.userId)
 			return false;
 		if (username == null) {
@@ -214,10 +217,7 @@ public class SurveyUser {
 	@Override
 	public String toString() {
 		return "SurveyUser [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", email=" + email + ", role=" + role + ", getUserId()="
-				+ getUserId() + ", getUsername()=" + getUsername() + ", getPassword()=" + getPassword()
-				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()="
-				+ getEmail() + ", getRole()=" + getRole() + "]";
+				+ firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 }
 	

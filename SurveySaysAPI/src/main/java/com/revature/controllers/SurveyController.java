@@ -12,7 +12,7 @@ import com.revature.model.SurveyUser;
 import com.revature.services.SurveyUserService;
 
 @RestController
-@RequestMapping("survey_user")
+@RequestMapping("survey_says")
 public class SurveyController {
 	
 	@Autowired
