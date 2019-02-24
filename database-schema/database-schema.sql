@@ -3,6 +3,9 @@
 --Make the schema
 drop schema if exists survey_says cascade;
 create schema survey_says;
+-- We might want to remove the schema and just use the public schema
+-- The API has difficulty getting data from other schemas (at least I haven't found out how)
+-- set schema 'survey_says';
 
 set schema 'survey_says';
 
