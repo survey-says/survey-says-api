@@ -15,8 +15,8 @@ public class SurveyUserServiceImpl implements SurveyUserService{
 
 	@Override
 	public SurveyUser save(SurveyUser su) {
-		// TODO Auto-generated method stub
-		return null;
+		su.setUserId(0);
+		return surveyUserRepo.save(su);
 	}
 
 	@Override
