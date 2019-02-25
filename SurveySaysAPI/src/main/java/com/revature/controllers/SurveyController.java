@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.model.Credentials;
 import com.revature.model.SurveyUser;
 import com.revature.services.SurveyUserService;
 
 @RestController
-@RequestMapping("survey_says")
+@RequestMapping("survey-says")
 public class SurveyController {
 	
 	@Autowired
@@ -30,8 +32,10 @@ public class SurveyController {
 	}
 	
 	@PostMapping("login")
-	public SurveyUser findByUsernameAndPassword(String username, String password) {
-		return surveyUserService.findByUsernameAndPassword(username, password);
+	public SurveyUser findByUsernameAndPassword(@RequestBody Credentials cred) {
+		//return surveyUserService.findByUsernameAndPassword(username, password);
+		
+		return surveyUserService.findByUsernameAndPassword(cred.getUsername(), cred.getPassword());
 	}
 
 }
