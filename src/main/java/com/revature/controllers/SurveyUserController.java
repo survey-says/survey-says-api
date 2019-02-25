@@ -16,17 +16,17 @@ import com.revature.services.SurveyUserService;
 
 @RestController
 @RequestMapping("survey-says")
-public class SurveyController {
+public class SurveyUserController {
 	
 	@Autowired
 	private SurveyUserService surveyUserService;
 	
-	@GetMapping
+	@GetMapping("users")
 	public List<SurveyUser> findAll() {
 		return surveyUserService.findAll();
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("users/{id}")
 	public SurveyUser findById(@PathVariable int id) {
 		return surveyUserService.findById(id);
 	}
