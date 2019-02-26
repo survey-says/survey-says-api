@@ -40,9 +40,11 @@ public class Survey {
 	private Date closingDate;
 	
 	@NotNull
+	// Will need to add the join relation here later. For now, just having this as a number field
 	private int status;
 	
 	@NotNull
+	// Will need to add the join relation here later. For now, just having this as a number field
 	private int privacy;
 		
 	public Survey() {
