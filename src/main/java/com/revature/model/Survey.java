@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,6 +24,7 @@ public class Survey {
 	private int surveyId;
 	
 	@NotNull
+	@Min(1)
     // Will need to add the join relation here later. For now, just having this as a number field
 	private int creator;
 	

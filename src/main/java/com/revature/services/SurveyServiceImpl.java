@@ -17,6 +17,18 @@ public class SurveyServiceImpl implements SurveyService{
 	@Override
 	public Survey save(Survey s) {
 		s.setSurveyId(0);
+
+		// If Privacy is invalid, set it to public
+		if (!((s.getPrivacy() == 1) || (s.getPrivacy() == 2))) {
+			s.setPrivacy(1);
+		}
+		
+		// If Status is invalid, set it to open
+		System.out.println("survey status" + s.getStatus());
+		if (!((s.getStatus() == 1) || (s.getStatus() == 2))) {
+			s.setStatus(1);
+		}
+		
 		return surveyRepo.save(s);
 	}
 
