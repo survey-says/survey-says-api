@@ -49,7 +49,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // all endpoints in the api
-            .allowedOrigins( "http://localhost:3000", "http://survey-says-front-end.s3-website-us-east-1.amazonaws.com/") // allow this origin
+            .allowedOrigins( "http://localhost:3000", "http://survey-says-front-end.s3-website-us-east-1.amazonaws.com") // allow this origin
             .allowedMethods("PUT", "DELETE", "GET", "OPTIONS", "POST", "PATCH")
             .allowedHeaders("header1", "header2", "Authorization", "Content-Type", "Application/JSON")
 //            .exposedHeaders("header1", "header2")
