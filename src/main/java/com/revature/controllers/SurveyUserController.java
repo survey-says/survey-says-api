@@ -17,7 +17,7 @@ import com.revature.model.SurveyUser;
 import com.revature.services.SurveyUserService;
 
 @RestController
-@RequestMapping("survey-says")
+@RequestMapping
 public class SurveyUserController {
 	
 	@Autowired
