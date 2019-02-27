@@ -186,8 +186,6 @@ values ('lori', 'pass55', 'Lori', 'Oliver', 'lori@surveysays.com');
 insert into survey_user (username, password, first_name, last_name, email) 
 values ('aaron', 'pass66', 'Aaron', 'Gravelle', 'aaron@surveysays.com');
 insert into survey_user (username, password, first_name, last_name, email) 
-values ('justin', 'pass22', 'Justin', 'Clark', 'justin@surveysays.com');
-insert into survey_user (username, password, first_name, last_name, email) 
 values ('iman', 'pass33', 'Iman', 'Davis-Young', 'iman@surveysays.com');
 insert into survey_user (username, password, first_name, last_name, email) 
 values ('hank', 'pass44', 'Hank', 'Zimmer', 'hank@surveysays.com');
@@ -198,7 +196,7 @@ values ('mod', 'mod', 'Survey','Moderator', 'mod@surveysays.com');
 
 -- Add some surveys
 insert into survey (creator, title, description, date_created, closing_date, status, privacy)
-values (5, 'Favorite Foods', 'A survey to determine the favorite foods of survey-takers', '2019/2/18', '2019/2/26', 2, 1);
+values (4, 'Favorite Foods', 'A survey to determine the favorite foods of survey-takers', '2019/2/18', '2019/2/26', 2, 1);
 insert into survey (creator, title, description, date_created, closing_date, status, privacy)
 values (1, 'City Preferences', 'A survey to determine which cities are most desirable', '2019/2/25', '2019/3/19', 1, 1);
 
@@ -451,14 +449,6 @@ values(8, 1);
 
 -- Add the user-survey-roles
 insert into role_junction (survey_id, user_id, role_id)
-values(1, 6, 1);
-insert into role_junction (survey_id, user_id, role_id)
-values(2, 6, 1);
-insert into role_junction (survey_id, user_id, role_id)
-values(1, 7, 2);
-insert into role_junction (survey_id, user_id, role_id)
-values(2, 7, 2);
-insert into role_junction (survey_id, user_id, role_id)
 values(1, 1, 2);
 insert into role_junction (survey_id, user_id, role_id)
 values(2, 1, 2);
@@ -475,6 +465,10 @@ values(1, 4, 2);
 insert into role_junction (survey_id, user_id, role_id)
 values(2, 4, 2);
 insert into role_junction (survey_id, user_id, role_id)
-values(1, 5, 2);
+values(1, 5, 1);
 insert into role_junction (survey_id, user_id, role_id)
-values(2, 5, 2);
+values(2, 5, 1);
+insert into role_junction (survey_id, user_id, role_id)
+values(1, 6, 2);
+insert into role_junction (survey_id, user_id, role_id)
+values(2, 6, 2);

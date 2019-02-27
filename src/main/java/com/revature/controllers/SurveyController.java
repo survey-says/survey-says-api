@@ -18,28 +18,27 @@ import com.revature.services.SurveyService;
 @RestController
 @RequestMapping("surveys")
 public class SurveyController {
-	
+
 	@Autowired
 	private SurveyService surveyService;
-	
+
 	@GetMapping("")
 	public List<Survey> findAll() {
 		return surveyService.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Survey findById(@PathVariable int id) {
 		return surveyService.findById(id);
 	}
-	
-	@GetMapping("/creator-id/{creatorId}")
+
+	@GetMapping("/creator/{creatorId}")
 	public List<Survey> findByCreator(@PathVariable int creatorId) {
 		return surveyService.findByCreator(creatorId);
 	}
-	
+
 	@PostMapping
 	public Survey save(@Valid @RequestBody Survey s) {
 		return surveyService.save(s);
 	}
-
 }

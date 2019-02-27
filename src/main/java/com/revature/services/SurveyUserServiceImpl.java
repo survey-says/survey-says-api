@@ -4,47 +4,47 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.model.SurveyUser;
+import com.revature.model.User;
 import com.revature.repos.SurveyUserRepo;
-import com.revature.services.SurveyUserService;
+import com.revature.services.UserService;
 
 @Service
-public class SurveyUserServiceImpl implements SurveyUserService{
+public class SurveyUserServiceImpl implements UserService{
 	@Autowired
 	private SurveyUserRepo surveyUserRepo;
 
 	@Override
-	public SurveyUser save(SurveyUser su) {
+	public User save(User su) {
 		su.setUserId(0);
 		return surveyUserRepo.save(su);
 	}
 
 	@Override
-	public SurveyUser update(SurveyUser su) {
+	public User update(User su) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public SurveyUser delete(SurveyUser su) {
+	public User delete(User su) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<SurveyUser> findAll() {
+	public List<User> findAll() {
 		// TODO Auto-generated method stub
 		return surveyUserRepo.findAll();
 	}
 
 	@Override
-	public SurveyUser findById(int id) {
+	public User findById(int id) {
 		// TODO Auto-generated method stub
 		return surveyUserRepo.getOne(id);
 	}
 
 	@Override
-	public SurveyUser findByUsernameAndPassword(String username, String password) {
+	public User findByUsernameAndPassword(String username, String password) {
 		// TODO Auto-generated method stub
 		return surveyUserRepo.findByUsernameAndPassword(username, password);
 	}

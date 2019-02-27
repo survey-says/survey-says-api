@@ -12,28 +12,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.model.Privacy;
-import com.revature.services.PrivacyService;
+import com.revature.model.Role;
+import com.revature.services.RoleService;
 
 @RestController
-@RequestMapping("privacy")
-public class PrivacyController {
+@RequestMapping("role")
+public class RoleController {
 	
 	@Autowired
-	private PrivacyService privacyService;
+	private RoleService roleService;
 	
 	@GetMapping("")
-	public List<Privacy> findAll() {
-		return privacyService.findAll();
+	public List<Role> findAll() {
+		return roleService.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Privacy findById(@PathVariable int id) {
-		return privacyService.findById(id);
+	public Role findById(@PathVariable int id) {
+		return roleService.findById(id);
 	}	
 	
 	@PostMapping
-	public Privacy save(@Valid @RequestBody Privacy p) {
-		return privacyService.save(p);
+	public Role save(@Valid @RequestBody Role r) {
+		return roleService.save(r);
 	}
 }

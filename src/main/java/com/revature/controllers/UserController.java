@@ -13,35 +13,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.revature.model.Credentials;
-import com.revature.model.SurveyUser;
-import com.revature.services.SurveyUserService;
+import com.revature.model.User;
+import com.revature.services.UserService;
 
 @RestController
 @RequestMapping
-public class SurveyUserController {
+public class UserController {
 	
 	@Autowired
-	private SurveyUserService surveyUserService;
+	private UserService userService;
 	
 	@GetMapping("users")
-	public List<SurveyUser> findAll() {
-		return surveyUserService.findAll();
+	public List<User> findAll() {
+		return userService.findAll();
 	}
 	
 	@GetMapping("users/{id}")
-	public SurveyUser findById(@PathVariable int id) {
-		return surveyUserService.findById(id);
+	public User findById(@PathVariable int id) {
+		return userService.findById(id);
 	}
 	
 	@PostMapping("login")
-	public SurveyUser findByUsernameAndPassword(@RequestBody Credentials cred) {
-		//return surveyUserService.findByUsernameAndPassword(username, password);
-		
-		return surveyUserService.findByUsernameAndPassword(cred.getUsername(), cred.getPassword());
+	public User findByUsernameAndPassword(@RequestBody Credentials cred) {
+		return userService.findByUsernameAndPassword(cred.getUsername(), cred.getPassword());
 	}
 	
 	@PostMapping("users")
-	public SurveyUser save(@Valid @RequestBody SurveyUser newUser) {
-		return surveyUserService.save(newUser);
+	public User save(@Valid @RequestBody User newUser) {
+		return userService.save(newUser);
 	}
 }

@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "survey_user")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class SurveyUser {
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
@@ -29,11 +29,11 @@ public class SurveyUser {
 	
 	private String email;
 	
-	public SurveyUser() {
+	public User() {
 		super();
 	}
 
-	public SurveyUser(int userId, String username, String password, String firstName, String lastName, String email) {
+	public User(int userId, String username, String password, String firstName, String lastName, String email) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -112,7 +112,7 @@ public class SurveyUser {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SurveyUser other = (SurveyUser) obj;
+		User other = (User) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -148,8 +148,6 @@ public class SurveyUser {
 		return "SurveyUser [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
-
-
 }
 	
 	

@@ -2,12 +2,9 @@ package com.revature.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -21,11 +18,11 @@ public class AnswerChoice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "choice_id")
 	private int choiceId;
-	
+
 	@NotNull
 	@Column(name = "answer_text")
 	private String answerText;
-	
+
 	@NotNull
 	private int question;
 
@@ -99,8 +96,4 @@ public class AnswerChoice {
 	public String toString() {
 		return "AnswerChoice [choiceId=" + choiceId + ", answerText=" + answerText + ", question=" + question + "]";
 	}
-	
-	
 }
-	
-	

@@ -30,7 +30,7 @@ public class RoleJunction {
 	@NotNull
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "survey_user", referencedColumnName="user_id")
-	private SurveyUser SurveyUser;
+	private User SurveyUser;
 	
 	@NotNull
 	@OneToOne(fetch = FetchType.EAGER)
@@ -41,7 +41,7 @@ public class RoleJunction {
 		super();
 	}
 
-	public RoleJunction(int junctionId, @NotNull Survey survey, com.revature.model.@NotNull SurveyUser surveyUser,
+	public RoleJunction(int junctionId, @NotNull Survey survey, com.revature.model.@NotNull User surveyUser,
 			@NotNull Role surveyRole) {
 		super();
 		this.junctionId = junctionId;
@@ -66,11 +66,11 @@ public class RoleJunction {
 		this.survey = survey;
 	}
 
-	public SurveyUser getSurveyUser() {
+	public User getSurveyUser() {
 		return SurveyUser;
 	}
 
-	public void setSurveyUser(SurveyUser surveyUser) {
+	public void setSurveyUser(User surveyUser) {
 		SurveyUser = surveyUser;
 	}
 

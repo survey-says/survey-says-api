@@ -1,19 +1,12 @@
 package com.revature.model;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -34,14 +27,8 @@ public class Survey {
 	@NotNull
 	private String description;
 
-	// This join should allow listing the all of the questions within each survey, but it's causing an infinite loop for some reason
-//	@OneToMany(mappedBy = "surveyId", fetch = FetchType.LAZY)
-//	private Set<Question> questions = new HashSet<>();
-
 	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "creator", referencedColumnName = "User_id")
-	private SurveyUser creator;
+	private int creator;
 
 	@Column(name = "date_created")
 	@NotNull
@@ -52,20 +39,17 @@ public class Survey {
 	private Date closingDate;
 
 	@NotNull
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "status", referencedColumnName = "status_id")
-	private Status status;
+	private int status;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "privacy", referencedColumnName = "privacy_id")
-	private Privacy privacy;
+	@NotNull
+	private int privacy;
 
 	public Survey() {
 		super();
 	}
 
-	public Survey(int surveyId, @NotNull String title, @NotNull String description, @NotNull SurveyUser creator,
-			@NotNull Date dateCreated, @NotNull Date closingDate, @NotNull Status status, Privacy privacy) {
+	public Survey(int surveyId, @NotNull String title, @NotNull String description, @NotNull int creator,
+			@NotNull Date dateCreated, @NotNull Date closingDate, @NotNull int status, @NotNull int privacy) {
 		super();
 		this.surveyId = surveyId;
 		this.title = title;
@@ -101,11 +85,11 @@ public class Survey {
 		this.description = description;
 	}
 
-	public SurveyUser getCreator() {
+	public int getCreator() {
 		return creator;
 	}
 
-	public void setCreator(SurveyUser creator) {
+	public void setCreator(int creator) {
 		this.creator = creator;
 	}
 
@@ -125,19 +109,19 @@ public class Survey {
 		this.closingDate = closingDate;
 	}
 
-	public Status getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 
-	public Privacy getPrivacy() {
+	public int getPrivacy() {
 		return privacy;
 	}
 
-	public void setPrivacy(Privacy privacy) {
+	public void setPrivacy(int privacy) {
 		this.privacy = privacy;
 	}
 
@@ -146,11 +130,11 @@ public class Survey {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((closingDate == null) ? 0 : closingDate.hashCode());
-		result = prime * result + ((creator == null) ? 0 : creator.hashCode());
+		result = prime * result + creator;
 		result = prime * result + ((dateCreated == null) ? 0 : dateCreated.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((privacy == null) ? 0 : privacy.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + privacy;
+		result = prime * result + status;
 		result = prime * result + surveyId;
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
@@ -170,10 +154,7 @@ public class Survey {
 				return false;
 		} else if (!closingDate.equals(other.closingDate))
 			return false;
-		if (creator == null) {
-			if (other.creator != null)
-				return false;
-		} else if (!creator.equals(other.creator))
+		if (creator != other.creator)
 			return false;
 		if (dateCreated == null) {
 			if (other.dateCreated != null)
@@ -185,15 +166,9 @@ public class Survey {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (privacy == null) {
-			if (other.privacy != null)
-				return false;
-		} else if (!privacy.equals(other.privacy))
+		if (privacy != other.privacy)
 			return false;
-		if (status == null) {
-			if (other.status != null)
-				return false;
-		} else if (!status.equals(other.status))
+		if (status != other.status)
 			return false;
 		if (surveyId != other.surveyId)
 			return false;
@@ -211,7 +186,5 @@ public class Survey {
 				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", status=" + status
 				+ ", privacy=" + privacy + "]";
 	}
-
-	
 
 }
