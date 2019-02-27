@@ -1,15 +1,20 @@
 package com.revature.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,45 +27,50 @@ public class Survey {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "survey_id")
 	private int surveyId;
-	
-	@NotNull
-	@Min(1)
-    // Will need to add the join relation here later. For now, just having this as a number field
-	private int creator;
-	
+
 	@NotNull
 	private String title;
-	
+
 	@NotNull
 	private String description;
-	
+
+	// This join should allow listing the all of the questions within each survey, but it's causing an infinite loop for some reason
+//	@OneToMany(mappedBy = "surveyId", fetch = FetchType.LAZY)
+//	private Set<Question> questions = new HashSet<>();
+
+	@NotNull
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "creator", referencedColumnName = "User_id")
+	private SurveyUser creator;
+
 	@Column(name = "date_created")
 	@NotNull
 	private Date dateCreated;
-	
+
 	@Column(name = "closing_date")
 	@NotNull
 	private Date closingDate;
-	
+
 	@NotNull
-	// Will need to add the join relation here later. For now, just having this as a number field
-	private int status;
-	
-	@NotNull
-	// Will need to add the join relation here later. For now, just having this as a number field
-	private int privacy;
-		
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "status", referencedColumnName = "status_id")
+	private Status status;
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "privacy", referencedColumnName = "privacy_id")
+	private Privacy privacy;
+
 	public Survey() {
 		super();
 	}
 
-	public Survey(int surveyId, @NotNull int creator, @NotNull String title, @NotNull String description,
-			@NotNull Date dateCreated, @NotNull Date closingDate, @NotNull int status, @NotNull int privacy) {
+	public Survey(int surveyId, @NotNull String title, @NotNull String description, @NotNull SurveyUser creator,
+			@NotNull Date dateCreated, @NotNull Date closingDate, @NotNull Status status, Privacy privacy) {
 		super();
 		this.surveyId = surveyId;
-		this.creator = creator;
 		this.title = title;
 		this.description = description;
+		this.creator = creator;
 		this.dateCreated = dateCreated;
 		this.closingDate = closingDate;
 		this.status = status;
@@ -73,14 +83,6 @@ public class Survey {
 
 	public void setSurveyId(int surveyId) {
 		this.surveyId = surveyId;
-	}
-
-	public int getCreator() {
-		return creator;
-	}
-
-	public void setCreator(int creator) {
-		this.creator = creator;
 	}
 
 	public String getTitle() {
@@ -99,6 +101,14 @@ public class Survey {
 		this.description = description;
 	}
 
+	public SurveyUser getCreator() {
+		return creator;
+	}
+
+	public void setCreator(SurveyUser creator) {
+		this.creator = creator;
+	}
+
 	public Date getDateCreated() {
 		return dateCreated;
 	}
@@ -115,19 +125,19 @@ public class Survey {
 		this.closingDate = closingDate;
 	}
 
-	public int getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 
-	public int getPrivacy() {
+	public Privacy getPrivacy() {
 		return privacy;
 	}
 
-	public void setPrivacy(int privacy) {
+	public void setPrivacy(Privacy privacy) {
 		this.privacy = privacy;
 	}
 
@@ -136,11 +146,11 @@ public class Survey {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((closingDate == null) ? 0 : closingDate.hashCode());
-		result = prime * result + creator;
+		result = prime * result + ((creator == null) ? 0 : creator.hashCode());
 		result = prime * result + ((dateCreated == null) ? 0 : dateCreated.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + privacy;
-		result = prime * result + status;
+		result = prime * result + ((privacy == null) ? 0 : privacy.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + surveyId;
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
@@ -160,7 +170,10 @@ public class Survey {
 				return false;
 		} else if (!closingDate.equals(other.closingDate))
 			return false;
-		if (creator != other.creator)
+		if (creator == null) {
+			if (other.creator != null)
+				return false;
+		} else if (!creator.equals(other.creator))
 			return false;
 		if (dateCreated == null) {
 			if (other.dateCreated != null)
@@ -172,9 +185,15 @@ public class Survey {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (privacy != other.privacy)
+		if (privacy == null) {
+			if (other.privacy != null)
+				return false;
+		} else if (!privacy.equals(other.privacy))
 			return false;
-		if (status != other.status)
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
 			return false;
 		if (surveyId != other.surveyId)
 			return false;
@@ -188,11 +207,11 @@ public class Survey {
 
 	@Override
 	public String toString() {
-		return "Survey [surveyId=" + surveyId + ", creator=" + creator + ", title=" + title + ", description="
-				+ description + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", status=" + status
+		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", creator="
+				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", status=" + status
 				+ ", privacy=" + privacy + "]";
 	}
 
+	
+
 }
-	
-	

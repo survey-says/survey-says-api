@@ -40,7 +40,7 @@ public class SurveyUserController {
 		return surveyUserService.findByUsernameAndPassword(cred.getUsername(), cred.getPassword());
 	}
 	
-	@PostMapping("register")
+	@PostMapping("users")
 	public SurveyUser save(@Valid @RequestBody SurveyUser newUser) {
 		return surveyUserService.save(newUser);
 	}

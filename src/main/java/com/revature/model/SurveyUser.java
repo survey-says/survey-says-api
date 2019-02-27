@@ -1,16 +1,10 @@
 package com.revature.model;
-import com.revature.model.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -34,11 +28,9 @@ public class SurveyUser {
 	private String lastName;
 	
 	private String email;
-//	private int role; // should be Role object?
 	
 	public SurveyUser() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public SurveyUser(int userId, String username, String password, String firstName, String lastName, String email) {
@@ -49,110 +41,56 @@ public class SurveyUser {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-//		this.role = role;
 	}
 
-	/**
-	 * @return the userId
-	 */
 	public int getUserId() {
 		return userId;
 	}
 
-	/**
-	 * @param userId the userId to set
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * @return the username
-	 */
 	public String getUsername() {
 		return username;
 	}
 
-	/**
-	 * @param username the username to set
-	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	/**
-	 * @return the password
-	 */
 	public String getPassword() {
 		return password;
 	}
 
-	/**
-	 * @param password the password to set
-	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	/**
-	 * @return the firstName
-	 */
 	public String getFirstName() {
 		return firstName;
 	}
 
-	/**
-	 * @param firstName the firstName to set
-	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	/**
-	 * @return the lastName
-	 */
 	public String getLastName() {
 		return lastName;
 	}
 
-	/**
-	 * @param lastName the lastName to set
-	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-	/**
-	 * @return the email
-	 */
 	public String getEmail() {
 		return email;
 	}
 
-	/**
-	 * @param email the email to set
-	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	/**
-	 * @return the role
-	 */
-/*	public int getRole() {
-		return role;
-	}*/
-
-	/**
-	 * @param role the role to set
-	 */
-/*	public void setRole(int role) {
-		this.role = role;
-	}*/
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -161,15 +99,11 @@ public class SurveyUser {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
-//		result = prime * result + role;
 		result = prime * result + userId;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -199,8 +133,6 @@ public class SurveyUser {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
-		/*if (role != other.role)
-			return false;*/
 		if (userId != other.userId)
 			return false;
 		if (username == null) {
@@ -211,14 +143,13 @@ public class SurveyUser {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "SurveyUser [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
+
+
 }
 	
 	
