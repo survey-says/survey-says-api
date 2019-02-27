@@ -62,8 +62,8 @@ create table question
 (	
 	question_id serial primary key,
 	question_text text not null,
-	survey int not null,
-	question_type int not null
+	survey_id int not null,
+	type_id int not null
 );
 
 create table question_type
@@ -126,12 +126,12 @@ on delete cascade on update cascade;
 -- Link the survey to the questions
 alter table question
 add constraint fk_survey_question
-foreign key (survey) references survey (survey_id);
+foreign key (survey_id) references survey (survey_id);
 
 -- Link the question type to the questions
 alter table question
 add constraint fk_question_type
-foreign key (question_type) references question_type (type_id);
+foreign key (type_id) references question_type (type_id);
 
 -- Link the question to the answer choices
 alter table answer_choice
@@ -202,25 +202,25 @@ values (1, 'City Preferences', 'A survey to determine which cities are most desi
 
 
 -- Add questions to survey 1 (Favorite Food)
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('Of the following, what type of cuisine do your like the best?', 1, 1);
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('Are you a fan of Mango?', 1, 2);
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('I love pizza!', 1, 3);
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('What type of food do you want to think is underrated?', 1, 5);
 
 -- Add questions for survey 2 (City Preferences)
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('Do you enjoy living in Tampa?', 2, 2);
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('Which city is the best of the following?', 2, 1);
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('I love cities', 2, 3);
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('With 5 being the best, how would you rate Tampa?', 2, 4);
-insert into question (question_text, survey, question_type)
+insert into question (question_text, survey_id, type_id)
 values ('Are there any other cities that you love?', 2, 5);
 
 -- Insert Question Choices --

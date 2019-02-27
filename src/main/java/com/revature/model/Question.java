@@ -30,8 +30,8 @@ public class Question {
 	private int surveyId;
 
 	@NotNull
-	@Column(name="question_type")
-	private int questionType;
+	@Column(name="type_id")
+	private int typeId;
 
 	public Question() {
 		super();
@@ -42,7 +42,7 @@ public class Question {
 		this.questionId = questionId;
 		this.questionText = questionText;
 		this.surveyId = surveyId;
-		this.questionType = questionType;
+		this.typeId = questionType;
 	}
 
 	public int getQuestionId() {
@@ -70,11 +70,11 @@ public class Question {
 	}
 
 	public int getQuestionType() {
-		return questionType;
+		return typeId;
 	}
 
 	public void setQuestionType(int questionType) {
-		this.questionType = questionType;
+		this.typeId = questionType;
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class Question {
 		int result = 1;
 		result = prime * result + questionId;
 		result = prime * result + ((questionText == null) ? 0 : questionText.hashCode());
-		result = prime * result + questionType;
+		result = prime * result + typeId;
 		result = prime * result + surveyId;
 		return result;
 	}
@@ -104,7 +104,7 @@ public class Question {
 				return false;
 		} else if (!questionText.equals(other.questionText))
 			return false;
-		if (questionType != other.questionType)
+		if (typeId != other.typeId)
 			return false;
 		if (surveyId != other.surveyId)
 			return false;
@@ -114,6 +114,6 @@ public class Question {
 	@Override
 	public String toString() {
 		return "Question [questionId=" + questionId + ", questionText=" + questionText + ", surveyId=" + surveyId
-				+ ", questionType=" + questionType + "]";
+				+ ", questionType=" + typeId + "]";
 	}
 }
