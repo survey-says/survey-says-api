@@ -47,6 +47,11 @@ public class SurveyController {
 		return surveyService.findByCreator(creatorId);
 	}
 	
+//	@GetMapping("/collaborator/{id}")
+//	public List<Survey> findByCollaborator(@PathVariable int id) {
+//		return surveyService.findByCollaborator(id);
+//	}
+	
 	@PostMapping
 	public Survey save(@Valid @RequestBody Survey s) {
 		return surveyService.save(s);

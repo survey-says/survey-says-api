@@ -72,4 +72,9 @@ public class SurveyServiceImpl implements SurveyService{
 		return surveyRepo.findByPrivacyPrivacyId(id);
 	}
 
+//	@Override
+//	public List<Survey> findByCollaborator(int id) {
+//		return surveyRepo.findByCollaboratorCollaboratorId(id);
+//	}
+
 }
