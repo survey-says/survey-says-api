@@ -17,30 +17,30 @@ import com.revature.model.SurveyUser;
 import com.revature.services.SurveyUserService;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping
 public class SurveyUserController {
 	
 	@Autowired
 	private SurveyUserService surveyUserService;
 	
-	@GetMapping("")
+	@GetMapping("users")
 	public List<SurveyUser> findAll() {
 		return surveyUserService.findAll();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("users/{id}")
 	public SurveyUser findById(@PathVariable int id) {
 		return surveyUserService.findById(id);
 	}
 	
-	@PostMapping("/login")
+	@PostMapping("login")
 	public SurveyUser findByUsernameAndPassword(@RequestBody Credentials cred) {
 		//return surveyUserService.findByUsernameAndPassword(username, password);
 		
 		return surveyUserService.findByUsernameAndPassword(cred.getUsername(), cred.getPassword());
 	}
 	
-	@PostMapping("")
+	@PostMapping("users")
 	public SurveyUser save(@Valid @RequestBody SurveyUser newUser) {
 		return surveyUserService.save(newUser);
 	}
