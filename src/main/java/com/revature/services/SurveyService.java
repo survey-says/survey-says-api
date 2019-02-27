@@ -12,4 +12,6 @@ public interface SurveyService {
 	List<Survey> findAll();
 	Survey findById(int id);
 	List<Survey> findByCreator(int creator);
+	List<Survey> findByStatus(int id);
+	List<Survey> findByPrivacy(int id);
 }
