@@ -53,9 +53,9 @@ create table survey_role
 create table role_junction
 (
 	junction_id serial primary key,
-	survey int not null,
-	survey_user int not null,
-	survey_role int not null
+	survey_id int not null,
+	user_id int not null,
+	role_id int not null
 );
 
 create table question
@@ -93,17 +93,17 @@ create table response
 -- Link the roles to the junction table
 alter table role_junction
 add constraint fk_role 
-foreign key (survey_role) references survey_role (role_id);
+foreign key (role_id) references survey_role (role_id);
 
 -- Link the surveys to the junction table
 alter table role_junction
 add constraint fk_survey_junction
-foreign key (survey) references survey (survey_id);
+foreign key (survey_id) references survey (survey_id);
 
 -- Link the users to the junction table
 alter table role_junction
 add constraint fk_user_junction
-foreign key (survey_user) references survey_user (user_id);
+foreign key (user_id) references survey_user (user_id);
 
 -- Link the creators to the surveys
 alter table survey
@@ -198,7 +198,7 @@ values ('mod', 'mod', 'Survey','Moderator', 'mod@surveysays.com');
 
 -- Add some surveys
 insert into survey (creator, title, description, date_created, closing_date, status, privacy)
-values (5, 'Favorite Foods', 'A survey to determine the favorite foods of survey-takers', '2019/2/18', '2019/3/15', 1, 1);
+values (5, 'Favorite Foods', 'A survey to determine the favorite foods of survey-takers', '2019/2/18', '2019/2/26', 2, 1);
 insert into survey (creator, title, description, date_created, closing_date, status, privacy)
 values (1, 'City Preferences', 'A survey to determine which cities are most desirable', '2019/2/25', '2019/3/19', 1, 1);
 
@@ -450,31 +450,31 @@ insert into response (question, answer_chosen)
 values(8, 1);
 
 -- Add the user-survey-roles
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(1, 6, 1);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(2, 6, 1);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(1, 7, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(2, 7, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(1, 1, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(2, 1, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(1, 2, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(2, 2, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(1, 3, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(2, 3, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(1, 4, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(2, 4, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(1, 5, 2);
-insert into role_junction (survey, survey_user, survey_role)
+insert into role_junction (survey_id, user_id, role_id)
 values(2, 5, 2);
