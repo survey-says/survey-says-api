@@ -18,11 +18,11 @@ public class QuestionType {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "type_id")
 	private int typeId;
-		
+
 	@NotNull
-	@Column(name= "question_type")
+	@Column(name = "question_type")
 	private String questionType;
-	
+
 	public QuestionType() {
 		super();
 	}
@@ -82,7 +82,4 @@ public class QuestionType {
 		return "QuestionType [typeId=" + typeId + ", questionType=" + questionType + "]";
 	}
 
-	
 }
-	
-	
