@@ -9,7 +9,7 @@ public interface ResponseService {
 
 	Response findById(int id);
 
-	List<Response> findByQuestionId(int id);
+	List<Response> findByQuestion(int id);
 
 	Response save(Response r);
 }

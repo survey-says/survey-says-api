@@ -15,12 +15,6 @@ public class QuestionServiceImpl implements QuestionService {
 	private QuestionRepo questionRepo;
 
 	@Override
-	public Question save(Question p) {
-		p.setQuestionId(0);
-		return questionRepo.save(p);
-	}
-
-	@Override
 	public List<Question> findAll() {
 		return questionRepo.findAll();
 	}
@@ -31,12 +25,18 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public List<Question> findBySurveyId(int id) {
-		return questionRepo.findBySurveyId(id);
+	public List<Question> findBySurvey(int id) {
+		return questionRepo.findBySurvey(id);
 	}
 
 	@Override
-	public List<Question> findByTypeId(int id) {
-		return questionRepo.findByTypeId(id);
+	public List<Question> findByType(int id) {
+		return questionRepo.findByType(id);
+	}
+	
+	@Override
+	public Question save(Question q) {
+		q.setQuestionId(0);
+		return questionRepo.save(q);
 	}
 }

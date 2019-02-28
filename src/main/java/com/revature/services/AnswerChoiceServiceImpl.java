@@ -15,12 +15,6 @@ public class AnswerChoiceServiceImpl implements AnswerChoiceService {
 	private AnswerChoiceRepo answerChoiceRepo;
 
 	@Override
-	public AnswerChoice save(AnswerChoice ac) {
-		ac.setChoiceId(0);
-		return answerChoiceRepo.save(ac);
-	}
-
-	@Override
 	public List<AnswerChoice> findAll() {
 		return answerChoiceRepo.findAll();
 	}
@@ -31,7 +25,13 @@ public class AnswerChoiceServiceImpl implements AnswerChoiceService {
 	}
 
 	@Override
-	public List<AnswerChoice> findByQuestionId(int id) {
-		return answerChoiceRepo.findByQuestionId(id);
+	public List<AnswerChoice> findByQuestion(int id) {
+		return answerChoiceRepo.findByQuestion(id);
+	}
+	
+	@Override
+	public AnswerChoice save(AnswerChoice ac) {
+		ac.setChoiceId(0);
+		return answerChoiceRepo.save(ac);
 	}
 }

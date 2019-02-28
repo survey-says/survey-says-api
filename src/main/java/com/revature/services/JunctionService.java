@@ -7,8 +7,8 @@ public interface JunctionService {
 	
 	List<Junction> findAll();
 	Junction findById(int id);
-	List<Junction> findBySurveyId(int id);
-	List<Junction> findByUserId(int id);
-	List<Junction> findByRoleId(int id);
+	List<Junction> findBySurvey(int id);
+	List<Junction> findByUser(int id);
+	List<Junction> findByRole(int id);
 	Junction save(Junction j);	
 }

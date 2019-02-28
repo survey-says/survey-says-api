@@ -8,5 +8,5 @@ import com.revature.model.Response;
 
 public interface ResponseRepo extends JpaRepository<Response, Integer> {
 
-	List<Response> findByQuestionId(int id);
+	List<Response> findByQuestion(int id);
 }

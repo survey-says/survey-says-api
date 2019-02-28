@@ -20,16 +20,16 @@ public class Junction {
 	private int junctionId;
 		
 	@NotNull
-	@Column(name = "survey_id")
-	private int surveyId;
+	@Column(name = "survey")
+	private int survey;
 	
 	@NotNull
-	@Column(name = "user_id")
-	private int userId;
+	@Column(name = "survey_user")
+	private int user;
 	
 	@NotNull
-	@Column(name = "role_id")
-	private int roleId;
+	@Column(name = "survey_role")
+	private int role;
 	
 	public Junction() {
 		super();
@@ -38,9 +38,9 @@ public class Junction {
 	public Junction(int junctionId, @NotNull int surveyId, @NotNull int userId, @NotNull int roleId) {
 		super();
 		this.junctionId = junctionId;
-		this.surveyId = surveyId;
-		this.userId = userId;
-		this.roleId = roleId;
+		this.survey = surveyId;
+		this.user = userId;
+		this.role = roleId;
 	}
 
 	public int getJunctionId() {
@@ -52,27 +52,27 @@ public class Junction {
 	}
 
 	public int getSurveyId() {
-		return surveyId;
+		return survey;
 	}
 
 	public void setSurveyId(int surveyId) {
-		this.surveyId = surveyId;
+		this.survey = surveyId;
 	}
 
 	public int getUserId() {
-		return userId;
+		return user;
 	}
 
 	public void setUserId(int userId) {
-		this.userId = userId;
+		this.user = userId;
 	}
 
 	public int getRoleId() {
-		return roleId;
+		return role;
 	}
 
 	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+		this.role = roleId;
 	}
 
 	@Override
@@ -80,9 +80,9 @@ public class Junction {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + junctionId;
-		result = prime * result + roleId;
-		result = prime * result + surveyId;
-		result = prime * result + userId;
+		result = prime * result + role;
+		result = prime * result + survey;
+		result = prime * result + user;
 		return result;
 	}
 
@@ -97,19 +97,19 @@ public class Junction {
 		Junction other = (Junction) obj;
 		if (junctionId != other.junctionId)
 			return false;
-		if (roleId != other.roleId)
+		if (role != other.role)
 			return false;
-		if (surveyId != other.surveyId)
+		if (survey != other.survey)
 			return false;
-		if (userId != other.userId)
+		if (user != other.user)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Junction [junctionId=" + junctionId + ", surveyId=" + surveyId + ", userId=" + userId + ", roleId="
-				+ roleId + "]";
+		return "Junction [junctionId=" + junctionId + ", surveyId=" + survey + ", userId=" + user + ", roleId="
+				+ role + "]";
 	}
 
 	

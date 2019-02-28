@@ -9,7 +9,7 @@ public interface AnswerChoiceService {
 
 	AnswerChoice findById(int id);
 
-	List<AnswerChoice> findByQuestionId(int id);
+	List<AnswerChoice> findByQuestion(int id);
 
 	AnswerChoice save(AnswerChoice ac);
 }

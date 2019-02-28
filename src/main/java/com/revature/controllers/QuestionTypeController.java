@@ -33,7 +33,7 @@ public class QuestionTypeController {
 	}
 	
 	@PostMapping
-	public QuestionType save(@Valid @RequestBody QuestionType p) {
-		return questionTypeService.save(p);
+	public QuestionType save(@Valid @RequestBody QuestionType q) {
+		return questionTypeService.save(q);
 	}
 }

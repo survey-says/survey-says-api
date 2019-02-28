@@ -33,13 +33,13 @@ public class QuestionController {
 	}
 
 	@GetMapping("/survey/{id}")
-	public List<Question> findBySurveyId(@PathVariable int id) {
-		return questionService.findBySurveyId(id);
+	public List<Question> findBySurvey(@PathVariable int id) {
+		return questionService.findBySurvey(id);
 	}
 
 	@GetMapping("/type/{id}")
-	public List<Question> findByTypeId(@PathVariable int id) {
-		return questionService.findByTypeId(id);
+	public List<Question> findByType(@PathVariable int id) {
+		return questionService.findByType(id);
 	}
 
 	@PostMapping

@@ -39,7 +39,6 @@ public class Survey {
 	private Date closingDate;
 
 	@NotNull
-	@Column(name = "privacy_id")
 	private int privacy;
 
 	public Survey() {
@@ -47,7 +46,7 @@ public class Survey {
 	}
 
 	public Survey(int surveyId, @NotNull String title, @NotNull String description, @NotNull int creator,
-			@NotNull Date dateCreated, @NotNull Date closingDate, @NotNull int privacyId) {
+			@NotNull Date dateCreated, @NotNull Date closingDate, @NotNull int privacy) {
 		super();
 		this.surveyId = surveyId;
 		this.title = title;
@@ -55,7 +54,7 @@ public class Survey {
 		this.creator = creator;
 		this.dateCreated = dateCreated;
 		this.closingDate = closingDate;
-		this.privacy = privacyId;
+		this.privacy = privacy;
 	}
 
 	public int getSurveyId() {
@@ -106,12 +105,12 @@ public class Survey {
 		this.closingDate = closingDate;
 	}
 
-	public int getPrivacyId() {
+	public int getPrivacy() {
 		return privacy;
 	}
 
-	public void setPrivacyId(int privacyId) {
-		this.privacy = privacyId;
+	public void setPrivacy(int privacy) {
+		this.privacy = privacy;
 	}
 
 	@Override
@@ -126,14 +125,6 @@ public class Survey {
 		result = prime * result + surveyId;
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
-	}
-
-	public int getPrivacy() {
-		return privacy;
-	}
-
-	public void setPrivacy(int privacy) {
-		this.privacy = privacy;
 	}
 
 	@Override
@@ -177,7 +168,7 @@ public class Survey {
 	@Override
 	public String toString() {
 		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", creator="
-				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", privacyId=" + privacy
+				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", privacy=" + privacy
 				+ "]";
 	}
 
