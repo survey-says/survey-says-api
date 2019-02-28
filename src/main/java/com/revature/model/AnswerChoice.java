@@ -2,12 +2,9 @@ package com.revature.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -21,13 +18,14 @@ public class AnswerChoice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "choice_id")
 	private int choiceId;
-	
+
 	@NotNull
 	@Column(name = "answer_text")
 	private String answerText;
-	
+
 	@NotNull
-	private int question;
+	@Column(name = "question_id")
+	private int questionId;
 
 	public AnswerChoice() {
 		super();
@@ -37,7 +35,7 @@ public class AnswerChoice {
 		super();
 		this.choiceId = choiceId;
 		this.answerText = answerText;
-		this.question = question;
+		this.questionId = question;
 	}
 
 	public int getChoiceId() {
@@ -57,11 +55,11 @@ public class AnswerChoice {
 	}
 
 	public int getQuestion() {
-		return question;
+		return questionId;
 	}
 
 	public void setQuestion(int question) {
-		this.question = question;
+		this.questionId = question;
 	}
 
 	@Override
@@ -70,7 +68,7 @@ public class AnswerChoice {
 		int result = 1;
 		result = prime * result + ((answerText == null) ? 0 : answerText.hashCode());
 		result = prime * result + choiceId;
-		result = prime * result + question;
+		result = prime * result + questionId;
 		return result;
 	}
 
@@ -90,17 +88,13 @@ public class AnswerChoice {
 			return false;
 		if (choiceId != other.choiceId)
 			return false;
-		if (question != other.question)
+		if (questionId != other.questionId)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "AnswerChoice [choiceId=" + choiceId + ", answerText=" + answerText + ", question=" + question + "]";
+		return "AnswerChoice [choiceId=" + choiceId + ", answerText=" + answerText + ", question=" + questionId + "]";
 	}
-	
-	
 }
-	
-	

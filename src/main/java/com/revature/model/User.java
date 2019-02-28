@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "survey_user")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class SurveyUser {
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
@@ -39,16 +39,21 @@ public class SurveyUser {
 	private String lastName;
 
 	private String email;
+<<<<<<< HEAD:src/main/java/com/revature/model/User.java
+	
+	public User() {
+=======
 
 	@ManyToMany(fetch = FetchType.LAZY,
 			mappedBy="collaborators")
 	private Set<Survey> collaboratedSurveys = new HashSet<>();
 
 	public SurveyUser() {
+>>>>>>> a5a81bd100662476d2522e9c4543412c9969d059:src/main/java/com/revature/model/SurveyUser.java
 		super();
 	}
 
-	public SurveyUser(int userId, String username, String password, String firstName, String lastName, String email) {
+	public User(int userId, String username, String password, String firstName, String lastName, String email) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -127,7 +132,7 @@ public class SurveyUser {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SurveyUser other = (SurveyUser) obj;
+		User other = (User) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -163,5 +168,8 @@ public class SurveyUser {
 		return "SurveyUser [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
+<<<<<<< HEAD:src/main/java/com/revature/model/User.java
+=======
 
+>>>>>>> a5a81bd100662476d2522e9c4543412c9969d059:src/main/java/com/revature/model/SurveyUser.java
 }
