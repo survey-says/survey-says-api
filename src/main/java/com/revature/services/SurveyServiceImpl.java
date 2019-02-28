@@ -60,11 +60,6 @@ public class SurveyServiceImpl implements SurveyService{
 	}
 
 	@Override
-	public List<Survey> findByStatusId(int id) {
-		return surveyRepo.findByStatusId(id);
-	}
-
-	@Override
 	public List<Survey> findByPrivacyId(int id) {
 		return surveyRepo.findByPrivacyId(id);
 	}

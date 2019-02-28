@@ -32,19 +32,19 @@ public class JunctionController {
 		return junctionService.findById(id);
 	}
 	
-	@GetMapping("/status/{id}")
-	public List<Junction> findByStatus(@PathVariable int id) {
-		return junctionService.findBySurvey(id);
+	@GetMapping("/survey/{id}")
+	public List<Junction> findBySurveyId(@PathVariable int id) {
+		return junctionService.findBySurveyId(id);
 	}
 	
 	@GetMapping("/user/{id}")
-	public List<Junction> findByUser(@PathVariable int id) {
-		return junctionService.findByUser(id);
+	public List<Junction> findByUserId(@PathVariable int id) {
+		return junctionService.findByUserId(id);
 	}
 	
 	@GetMapping("/role/{id}")
 	public List<Junction> findByRole(@PathVariable int id) {
-		return junctionService.findByRole(id);
+		return junctionService.findByRoleId(id);
 	}
 	
 	@PostMapping

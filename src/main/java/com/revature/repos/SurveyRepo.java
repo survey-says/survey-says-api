@@ -8,8 +8,6 @@ public interface SurveyRepo extends JpaRepository<Survey, Integer> {
 
 	List<Survey> findByCreator(int creator);
 
-	List<Survey> findByStatusId(int id);
-
 	List<Survey> findByPrivacyId(int id);
 
 	List<Survey> findByTitle(String title);

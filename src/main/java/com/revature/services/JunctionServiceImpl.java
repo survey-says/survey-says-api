@@ -31,17 +31,17 @@ public class JunctionServiceImpl implements JunctionService{
 	}
 
 	@Override
-	public List<Junction> findBySurvey(int id) {
+	public List<Junction> findBySurveyId(int id) {
 		return junctionRepo.findBySurveyId(id);
 	}
 
 	@Override
-	public List<Junction> findByUser(int id) {
+	public List<Junction> findByUserId(int id) {
 		return junctionRepo.findByUserId(id);
 	}
 
 	@Override
-	public List<Junction> findByRole(int id) {
+	public List<Junction> findByRoleId(int id) {
 		return junctionRepo.findByRoleId(id);
 	}
 }
