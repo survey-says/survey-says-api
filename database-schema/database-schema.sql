@@ -76,13 +76,13 @@ create table answer_choice
 (	
 	choice_id serial primary key,
 	answer_text text not null,
-	question int not null
+	question_id int not null
 );
 
 create table response
 (	
 	response_id serial primary key,
-	question int not null,
+	question_id int not null,
 	answer_chosen int not null
 );
 
@@ -136,12 +136,12 @@ foreign key (type_id) references question_type (type_id);
 -- Link the question to the answer choices
 alter table answer_choice
 add constraint fk_answer_choice
-foreign key (question) references question (question_id);
+foreign key (question_id) references question (question_id);
 
 -- Link the question to the responses
 alter table response
 add constraint fk_response_to_question
-foreign key (question) references question (question_id);
+foreign key (question_id) references question (question_id);
 
 -- Link the answer_choice to the responses
 alter table response
@@ -226,225 +226,225 @@ values ('Are there any other cities that you love?', 2, 5);
 -- Insert Question Choices --
 
 -- Question 1 (Survey 1, Favorite Food)
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Chinese', 1);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Jamaican', 1); 
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Italian', 1);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Mexican', 1);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('American', 1);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Japanese', 1);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Thai', 1);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Indian', 1);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Mediterranean', 1);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Filipino', 1);
 
 -- Question 2 (Survey 1, Favorite Food)
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Yes', 2);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('No', 2); 
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Maybe', 2); 
 
 -- Question 3 (Survey 1, Favorite Food)
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Strongly Agree', 3);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Agree', 3);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Neutral', 3);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Disagree', 3);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Strongly Disagree', 3);
 
 -- Question 5 (Survey 2, City Preferences)
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Yes', 5);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('No', 5);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Maybe', 5);
 
 -- Question 6 (Survey 2, City Preferences)
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Miami', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('New York City', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Atlanta', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Los Angeles', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('London', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Tokyo', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Beijing', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Denver', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Zurich', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Seattle', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('San Diego', 6);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Houston', 6);
 
 -- Question 7 (Survey 2, City Preferences)
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Strongly Agree', 7);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Agree', 7);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Neutral', 7);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Disagree', 7);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('Strongly Disagree', 7);
 
 -- Question 7 (Survey 2, City Preferences)
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('1', 8);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('2', 8);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('3', 8);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('4', 8);
-insert into answer_choice (answer_text, question)
+insert into answer_choice (answer_text, question_id)
 values('5', 8);
 
 -- Insert responses for question 1 (Favorite Food)
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 4);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 8);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 4);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 7);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 4);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 5);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 4);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 4);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(1, 6);
 
 -- Insert responses for question 2 (Do you like Mangos)
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(2, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(2, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(2, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(2, 3);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(2, 1);
 
 -- Insert responses for question 3 (I love pizza)
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(3, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(3, 6);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(3, 5);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(3, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(3, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(3, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(3, 3);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(3, 2);
 
 -- Insert responses for question 5 (Do you like Tampa)
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(5, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(5, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(5, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(5, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(5, 3);
 
 -- Insert responses for question 6 (Favorite City)
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 3);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 5);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 7);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 3);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 10);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 5);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(6, 11);
 
 -- Insert responses for question 7 (I like cities)
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(7, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(7, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(7, 6);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(7, 3);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(7, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(7, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(7, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(7, 4);
 
 -- Insert responses for question 7 (Tampa Ratings)
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(8, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(8, 2);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(8, 1);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(8, 4);
-insert into response (question, answer_chosen) 
+insert into response (question_id, answer_chosen) 
 values(8, 1);
 
 -- Add the user-survey-roles
