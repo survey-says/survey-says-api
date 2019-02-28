@@ -2,13 +2,25 @@ package com.revature.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
+=======
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+>>>>>>> a5a81bd100662476d2522e9c4543412c9969d059
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.data.jpa.repository.Query;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -28,7 +40,19 @@ public class Survey {
 	private String description;
 
 	@NotNull
+<<<<<<< HEAD
 	private int creator;
+=======
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "creator", referencedColumnName = "user_id")
+	private SurveyUser creator;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "role_junction", 
+		joinColumns = @JoinColumn(name="survey_id"),
+		inverseJoinColumns = @JoinColumn(name="user_id"))
+	private Set<SurveyUser> collaborators = new HashSet<>();
+>>>>>>> a5a81bd100662476d2522e9c4543412c9969d059
 
 	@Column(name = "date_created")
 	@NotNull

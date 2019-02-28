@@ -1,10 +1,21 @@
 package com.revature.model;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,19 +28,28 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int userId;
-	
+
 	private String username;
 	private String password;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	private String email;
+<<<<<<< HEAD:src/main/java/com/revature/model/User.java
 	
 	public User() {
+=======
+
+	@ManyToMany(fetch = FetchType.LAZY,
+			mappedBy="collaborators")
+	private Set<Survey> collaboratedSurveys = new HashSet<>();
+
+	public SurveyUser() {
+>>>>>>> a5a81bd100662476d2522e9c4543412c9969d059:src/main/java/com/revature/model/SurveyUser.java
 		super();
 	}
 
@@ -148,6 +168,8 @@ public class User {
 		return "SurveyUser [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
+<<<<<<< HEAD:src/main/java/com/revature/model/User.java
+=======
+
+>>>>>>> a5a81bd100662476d2522e9c4543412c9969d059:src/main/java/com/revature/model/SurveyUser.java
 }
-	
-	
