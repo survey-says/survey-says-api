@@ -18,29 +18,29 @@ public class Junction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "junction_id")
 	private int junctionId;
-		
+
 	@NotNull
 	@Column(name = "survey")
 	private int survey;
-	
+
 	@NotNull
 	@Column(name = "survey_user")
 	private int user;
-	
+
 	@NotNull
 	@Column(name = "survey_role")
 	private int role;
-	
+
 	public Junction() {
 		super();
 	}
 
-	public Junction(int junctionId, @NotNull int surveyId, @NotNull int userId, @NotNull int roleId) {
+	public Junction(int junctionId, @NotNull int survey, @NotNull int user, @NotNull int role) {
 		super();
 		this.junctionId = junctionId;
-		this.survey = surveyId;
-		this.user = userId;
-		this.role = roleId;
+		this.survey = survey;
+		this.user = user;
+		this.role = role;
 	}
 
 	public int getJunctionId() {
@@ -51,28 +51,28 @@ public class Junction {
 		this.junctionId = junctionId;
 	}
 
-	public int getSurveyId() {
+	public int getSurvey() {
 		return survey;
 	}
 
-	public void setSurveyId(int surveyId) {
-		this.survey = surveyId;
+	public void setSurvey(int survey) {
+		this.survey = survey;
 	}
 
-	public int getUserId() {
+	public int getUser() {
 		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.user = userId;
+	public void setUser(int user) {
+		this.user = user;
 	}
 
-	public int getRoleId() {
+	public int getRole() {
 		return role;
 	}
 
-	public void setRoleId(int roleId) {
-		this.role = roleId;
+	public void setRole(int role) {
+		this.role = role;
 	}
 
 	@Override
@@ -108,11 +108,7 @@ public class Junction {
 
 	@Override
 	public String toString() {
-		return "Junction [junctionId=" + junctionId + ", surveyId=" + survey + ", userId=" + user + ", roleId="
-				+ role + "]";
+		return "Junction [junctionId=" + junctionId + ", survey=" + survey + ", user=" + user + ", role=" + role + "]";
 	}
 
-	
 }
-	
-	
