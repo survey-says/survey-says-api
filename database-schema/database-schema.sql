@@ -28,8 +28,8 @@ create table survey
 	description text not null,
 	date_created date not null,
 	closing_date date not null,
-	status int not null,
-	privacy int not null
+	status_id int not null,
+	privacy_id int not null
 );
 
 create table survey_status
@@ -114,13 +114,13 @@ on delete cascade on update cascade;
 -- Link the status to the surveys
 alter table survey
 add constraint fk_survey_status
-foreign key (status) references survey_status (status_id)
+foreign key (status_id) references survey_status (status_id)
 on delete cascade on update cascade;
 
 -- Link the privacy to the surveys
 alter table survey
 add constraint fk_survey_privacy
-foreign key (privacy) references survey_privacy (privacy_id)
+foreign key (privacy_id) references survey_privacy (privacy_id)
 on delete cascade on update cascade;
 
 -- Link the survey to the questions
@@ -195,9 +195,9 @@ insert into survey_user (username, password, first_name, last_name, email)
 values ('mod', 'mod', 'Survey','Moderator', 'mod@surveysays.com');
 
 -- Add some surveys
-insert into survey (creator, title, description, date_created, closing_date, status, privacy)
+insert into survey (creator, title, description, date_created, closing_date, status_id, privacy_id)
 values (4, 'Favorite Foods', 'A survey to determine the favorite foods of survey-takers', '2019/2/18', '2019/2/26', 2, 1);
-insert into survey (creator, title, description, date_created, closing_date, status, privacy)
+insert into survey (creator, title, description, date_created, closing_date, status_id, privacy_id)
 values (1, 'City Preferences', 'A survey to determine which cities are most desirable', '2019/2/25', '2019/3/19', 1, 1);
 
 

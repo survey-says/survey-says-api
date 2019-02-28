@@ -56,22 +56,22 @@ public class SurveyServiceImpl implements SurveyService{
 
 	@Override
 	public List<Survey> findByCreator(int creator) {
-		return surveyRepo.findByCreatorUserId(creator);
+		return surveyRepo.findByCreator(creator);
 	}
 
 	@Override
-	public List<Survey> findByStatus(int id) {
-		return surveyRepo.findByStatusStatusId(id);
+	public List<Survey> findByStatusId(int id) {
+		return surveyRepo.findByStatusId(id);
 	}
 
 	@Override
-	public List<Survey> findByPrivacy(int id) {
-		return surveyRepo.findByPrivacyPrivacyId(id);
+	public List<Survey> findByPrivacyId(int id) {
+		return surveyRepo.findByPrivacyId(id);
 	}
-
-//	@Override
-//	public List<Survey> findByCollaborator(int id) {
-//		return surveyRepo.findByCollaboratorCollaboratorId(id);
-//	}
+	
+	@Override
+	public List<Survey> findByTitle(String title) {
+		return surveyRepo.findByTitle(title);
+	}
 
 }

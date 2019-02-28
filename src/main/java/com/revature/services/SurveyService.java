@@ -12,7 +12,7 @@ public interface SurveyService {
 	List<Survey> findAll();
 	Survey findById(int id);
 	List<Survey> findByCreator(int creator);
-	List<Survey> findByStatus(int id);
-	List<Survey> findByPrivacy(int id);
-//	List<Survey> findByCollaborator(int id);
+	List<Survey> findByStatusId(int id);
+	List<Survey> findByPrivacyId(int id);
+	List<Survey> findByTitle(String title);
 }
