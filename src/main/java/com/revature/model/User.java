@@ -39,17 +39,8 @@ public class User {
 	private String lastName;
 
 	private String email;
-<<<<<<< HEAD:src/main/java/com/revature/model/User.java
 	
 	public User() {
-=======
-
-	@ManyToMany(fetch = FetchType.LAZY,
-			mappedBy="collaborators")
-	private Set<Survey> collaboratedSurveys = new HashSet<>();
-
-	public SurveyUser() {
->>>>>>> a5a81bd100662476d2522e9c4543412c9969d059:src/main/java/com/revature/model/SurveyUser.java
 		super();
 	}
 
@@ -168,8 +159,4 @@ public class User {
 		return "SurveyUser [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
-<<<<<<< HEAD:src/main/java/com/revature/model/User.java
-=======
-
->>>>>>> a5a81bd100662476d2522e9c4543412c9969d059:src/main/java/com/revature/model/SurveyUser.java
 }

@@ -2,25 +2,13 @@ package com.revature.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
-=======
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
->>>>>>> a5a81bd100662476d2522e9c4543412c9969d059
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.data.jpa.repository.Query;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -40,19 +28,7 @@ public class Survey {
 	private String description;
 
 	@NotNull
-<<<<<<< HEAD
 	private int creator;
-=======
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "creator", referencedColumnName = "user_id")
-	private SurveyUser creator;
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "role_junction", 
-		joinColumns = @JoinColumn(name="survey_id"),
-		inverseJoinColumns = @JoinColumn(name="user_id"))
-	private Set<SurveyUser> collaborators = new HashSet<>();
->>>>>>> a5a81bd100662476d2522e9c4543412c9969d059
 
 	@Column(name = "date_created")
 	@NotNull
@@ -63,10 +39,12 @@ public class Survey {
 	private Date closingDate;
 
 	@NotNull
-	private int status;
+	@Column(name="status_id")
+	private int statusId;
 
 	@NotNull
-	private int privacy;
+	@Column(name="privacy_id")
+	private int privacyId;
 
 	public Survey() {
 		super();
@@ -81,8 +59,8 @@ public class Survey {
 		this.creator = creator;
 		this.dateCreated = dateCreated;
 		this.closingDate = closingDate;
-		this.status = status;
-		this.privacy = privacy;
+		this.statusId = status;
+		this.privacyId = privacy;
 	}
 
 	public int getSurveyId() {
@@ -134,19 +112,19 @@ public class Survey {
 	}
 
 	public int getStatus() {
-		return status;
+		return statusId;
 	}
 
 	public void setStatus(int status) {
-		this.status = status;
+		this.statusId = status;
 	}
 
 	public int getPrivacy() {
-		return privacy;
+		return privacyId;
 	}
 
 	public void setPrivacy(int privacy) {
-		this.privacy = privacy;
+		this.privacyId = privacy;
 	}
 
 	@Override
@@ -157,8 +135,8 @@ public class Survey {
 		result = prime * result + creator;
 		result = prime * result + ((dateCreated == null) ? 0 : dateCreated.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + privacy;
-		result = prime * result + status;
+		result = prime * result + privacyId;
+		result = prime * result + statusId;
 		result = prime * result + surveyId;
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
@@ -190,9 +168,9 @@ public class Survey {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (privacy != other.privacy)
+		if (privacyId != other.privacyId)
 			return false;
-		if (status != other.status)
+		if (statusId != other.statusId)
 			return false;
 		if (surveyId != other.surveyId)
 			return false;
@@ -207,8 +185,8 @@ public class Survey {
 	@Override
 	public String toString() {
 		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", creator="
-				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", status=" + status
-				+ ", privacy=" + privacy + "]";
+				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", status=" + statusId
+				+ ", privacy=" + privacyId + "]";
 	}
 
 }
