@@ -16,7 +16,7 @@ import com.revature.model.Response;
 import com.revature.services.ResponseService;
 
 @RestController
-@RequestMapping("response")
+@RequestMapping("responses")
 public class ResponseController {
 
 	@Autowired

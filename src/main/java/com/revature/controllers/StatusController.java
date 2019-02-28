@@ -16,7 +16,7 @@ import com.revature.model.Status;
 import com.revature.services.StatusService;
 
 @RestController
-@RequestMapping("status")
+@RequestMapping("statuses")
 public class StatusController {
 	
 	@Autowired

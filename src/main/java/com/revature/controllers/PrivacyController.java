@@ -16,7 +16,7 @@ import com.revature.model.Privacy;
 import com.revature.services.PrivacyService;
 
 @RestController
-@RequestMapping("privacy")
+@RequestMapping("privacies")
 public class PrivacyController {
 	
 	@Autowired

@@ -31,11 +31,11 @@ public class AnswerChoice {
 		super();
 	}
 
-	public AnswerChoice(int choiceId, @NotNull String answerText, @NotNull int question) {
+	public AnswerChoice(int choiceId, @NotNull String answerText, @NotNull int questionId) {
 		super();
 		this.choiceId = choiceId;
 		this.answerText = answerText;
-		this.questionId = question;
+		this.questionId = questionId;
 	}
 
 	public int getChoiceId() {
@@ -54,12 +54,12 @@ public class AnswerChoice {
 		this.answerText = answerText;
 	}
 
-	public int getQuestion() {
+	public int getQuestionId() {
 		return questionId;
 	}
 
-	public void setQuestion(int question) {
-		this.questionId = question;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
 
 	@Override
@@ -95,6 +95,7 @@ public class AnswerChoice {
 
 	@Override
 	public String toString() {
-		return "AnswerChoice [choiceId=" + choiceId + ", answerText=" + answerText + ", question=" + questionId + "]";
+		return "AnswerChoice [choiceId=" + choiceId + ", answerText=" + answerText + ", questionId=" + questionId + "]";
 	}
+
 }

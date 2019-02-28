@@ -16,7 +16,7 @@ import com.revature.model.Role;
 import com.revature.services.RoleService;
 
 @RestController
-@RequestMapping("role")
+@RequestMapping("roles")
 public class RoleController {
 	
 	@Autowired
