@@ -16,7 +16,7 @@ import com.revature.model.Junction;
 import com.revature.services.JunctionService;
 
 @RestController
-@RequestMapping("junction")
+@RequestMapping("junctions")
 public class JunctionController {
 	
 	@Autowired

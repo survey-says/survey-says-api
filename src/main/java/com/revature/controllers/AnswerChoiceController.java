@@ -16,7 +16,7 @@ import com.revature.model.AnswerChoice;
 import com.revature.services.AnswerChoiceService;
 
 @RestController
-@RequestMapping("answer-choice")
+@RequestMapping("answer-choices")
 public class AnswerChoiceController {
 
 	@Autowired
