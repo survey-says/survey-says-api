@@ -54,13 +54,27 @@ public class SurveyServiceImpl implements SurveyService{
 
 	@Override
 	public Survey findById(int id) {
-		// TODO Auto-generated method stub
 		return surveyRepo.getOne(id);
 	}
 
 	@Override
 	public List<Survey> findByCreator(int creator) {
-		return surveyRepo.findByCreator(creator);
+		return surveyRepo.findByCreatorUserId(creator);
 	}
+
+	@Override
+	public List<Survey> findByStatus(int id) {
+		return surveyRepo.findByStatusStatusId(id);
+	}
+
+	@Override
+	public List<Survey> findByPrivacy(int id) {
+		return surveyRepo.findByPrivacyPrivacyId(id);
+	}
+
+//	@Override
+//	public List<Survey> findByCollaborator(int id) {
+//		return surveyRepo.findByCollaboratorCollaboratorId(id);
+//	}
 
 }

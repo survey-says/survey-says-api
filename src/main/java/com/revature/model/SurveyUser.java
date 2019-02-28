@@ -1,10 +1,21 @@
 package com.revature.model;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,18 +28,22 @@ public class SurveyUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int userId;
-	
+
 	private String username;
 	private String password;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	private String email;
-	
+
+	@ManyToMany(fetch = FetchType.LAZY,
+			mappedBy="collaborators")
+	private Set<Survey> collaboratedSurveys = new HashSet<>();
+
 	public SurveyUser() {
 		super();
 	}
@@ -149,7 +164,4 @@ public class SurveyUser {
 				+ firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 
-
 }
-	
-	

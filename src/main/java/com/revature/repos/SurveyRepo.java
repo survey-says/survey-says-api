@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface SurveyRepo extends JpaRepository<Survey, Integer>{
 	List<Survey> findBySurveyId(int id);
-	List<Survey> findByCreator(int creator);
+	List<Survey> findByCreatorUserId(int creator);
+	List<Survey> findByStatusStatusId(int id);
+	List<Survey> findByPrivacyPrivacyId(int id);
+//	List<Survey> findByCollaboratorCollaboratorId(int id);
 }

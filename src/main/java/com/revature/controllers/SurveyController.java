@@ -32,10 +32,25 @@ public class SurveyController {
 		return surveyService.findById(id);
 	}
 	
-	@GetMapping("/creator-id/{creatorId}")
+	@GetMapping("/status/{id}")
+	public List<Survey> findByStatus(@PathVariable int id) {
+		return surveyService.findByStatus(id);
+	}
+	
+	@GetMapping("/privacy/{id}")
+	public List<Survey> findByPrivacy(@PathVariable int id) {
+		return surveyService.findByPrivacy(id);
+	}
+	
+	@GetMapping("/creator/{creatorId}")
 	public List<Survey> findByCreator(@PathVariable int creatorId) {
 		return surveyService.findByCreator(creatorId);
 	}
+	
+//	@GetMapping("/collaborator/{id}")
+//	public List<Survey> findByCollaborator(@PathVariable int id) {
+//		return surveyService.findByCollaborator(id);
+//	}
 	
 	@PostMapping
 	public Survey save(@Valid @RequestBody Survey s) {
