@@ -10,26 +10,9 @@ import com.revature.repos.SurveyRepo;
 import com.revature.services.SurveyService;
 
 @Service
-public class SurveyServiceImpl implements SurveyService{
+public class SurveyServiceImpl implements SurveyService {
 	@Autowired
 	private SurveyRepo surveyRepo;
-
-	@Override
-	public Survey save (Survey s) {
-		s.setSurveyId(0);
-				
-		// If Privacy is invalid, set it to public
-		if (!((s.getPrivacy() == 1) || (s.getPrivacy() == 2))) {
-			s.setPrivacy(1);
-		}
-		
-		// If Status is invalid, set it to open
-		if (!((s.getStatus() == 1) || (s.getStatus() == 2))) {
-			s.setStatus(1);
-		}
-		
-		return surveyRepo.save(s);
-	}
 
 	@Override
 	public Survey update(Survey s) {
@@ -60,13 +43,25 @@ public class SurveyServiceImpl implements SurveyService{
 	}
 
 	@Override
-	public List<Survey> findByPrivacyId(int id) {
-		return surveyRepo.findByPrivacyId(id);
+	public List<Survey> findByPrivacy(int id) {
+		return surveyRepo.findByPrivacy(id);
 	}
-	
+
 	@Override
 	public List<Survey> findByTitle(String title) {
 		return surveyRepo.findByTitle(title);
+	}
+
+	@Override
+	public Survey save(Survey s) {
+		s.setSurveyId(0);
+
+		// If Privacy is invalid, set it to public
+		if (!((s.getPrivacy() == 1) || (s.getPrivacy() == 2))) {
+			s.setPrivacy(1);
+		}
+
+		return surveyRepo.save(s);
 	}
 
 }

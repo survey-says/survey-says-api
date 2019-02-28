@@ -33,8 +33,8 @@ public class SurveyController {
 	}
 
 	@GetMapping("/privacy/{id}")
-	public List<Survey> findByPrivacyId(@PathVariable int id) {
-		return surveyService.findByPrivacyId(id);
+	public List<Survey> findByPrivacy(@PathVariable int id) {
+		return surveyService.findByPrivacy(id);
 	}
 
 	@GetMapping("/creator/{creatorId}")

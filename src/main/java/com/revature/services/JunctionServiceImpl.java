@@ -10,13 +10,13 @@ import com.revature.repos.JunctionRepo;
 import com.revature.services.JunctionService;
 
 @Service
-public class JunctionServiceImpl implements JunctionService{
+public class JunctionServiceImpl implements JunctionService {
 	@Autowired
 	private JunctionRepo junctionRepo;
 
 	@Override
-	public Junction save (Junction p) {
-		p.setJunctionId(0);		
+	public Junction save(Junction p) {
+		p.setJunctionId(0);
 		return junctionRepo.save(p);
 	}
 
