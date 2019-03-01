@@ -33,8 +33,8 @@ public class AnswerChoiceController {
 	}
 
 	@GetMapping("/question/{id}")
-	public List<AnswerChoice> findByQuestionId(@PathVariable int id) {
-		return answerChoiceService.findByQuestionId(id);
+	public List<AnswerChoice> findByQuestion(@PathVariable int id) {
+		return answerChoiceService.findByQuestion(id);
 	}
 
 	@PostMapping

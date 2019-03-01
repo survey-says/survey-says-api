@@ -31,22 +31,17 @@ public class SurveyController {
 	public Survey findById(@PathVariable int id) {
 		return surveyService.findById(id);
 	}
-	
-	@GetMapping("/status/{id}")
-	public List<Survey> findByStatusId(@PathVariable int id) {
-		return surveyService.findByStatusId(id);
-	}
-	
+
 	@GetMapping("/privacy/{id}")
-	public List<Survey> findByPrivacyId(@PathVariable int id) {
-		return surveyService.findByPrivacyId(id);
+	public List<Survey> findByPrivacy(@PathVariable int id) {
+		return surveyService.findByPrivacy(id);
 	}
 
 	@GetMapping("/creator/{creatorId}")
 	public List<Survey> findByCreator(@PathVariable int creatorId) {
 		return surveyService.findByCreator(creatorId);
 	}
-	
+
 	@GetMapping("/title/{title}")
 	public List<Survey> findByTitle(@PathVariable String title) {
 		return surveyService.findByTitle(title);

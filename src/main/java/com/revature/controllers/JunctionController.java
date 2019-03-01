@@ -18,35 +18,35 @@ import com.revature.services.JunctionService;
 @RestController
 @RequestMapping("junctions")
 public class JunctionController {
-	
+
 	@Autowired
 	private JunctionService junctionService;
-	
+
 	@GetMapping("")
 	public List<Junction> findAll() {
 		return junctionService.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Junction findById(@PathVariable int id) {
 		return junctionService.findById(id);
 	}
-	
-	@GetMapping("/status/{id}")
-	public List<Junction> findByStatus(@PathVariable int id) {
+
+	@GetMapping("/survey/{id}")
+	public List<Junction> findBySurvey(@PathVariable int id) {
 		return junctionService.findBySurvey(id);
 	}
-	
+
 	@GetMapping("/user/{id}")
 	public List<Junction> findByUser(@PathVariable int id) {
 		return junctionService.findByUser(id);
 	}
-	
+
 	@GetMapping("/role/{id}")
 	public List<Junction> findByRole(@PathVariable int id) {
 		return junctionService.findByRole(id);
 	}
-	
+
 	@PostMapping
 	public Junction save(@Valid @RequestBody Junction p) {
 		return junctionService.save(p);

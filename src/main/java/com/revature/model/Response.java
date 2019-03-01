@@ -20,8 +20,7 @@ public class Response {
 	private int responseId;
 	
 	@NotNull
-	@Column(name="question_id")
-	private int questionId;
+	private int question;
 	
 	@NotNull
 	@Column(name="answer_chosen")
@@ -34,7 +33,7 @@ public class Response {
 	public Response(int responseId, @NotNull int question, @NotNull int answerChosen) {
 		super();
 		this.responseId = responseId;
-		this.questionId = question;
+		this.question = question;
 		this.answerChosen = answerChosen;
 	}
 
@@ -47,11 +46,11 @@ public class Response {
 	}
 
 	public int getQuestion() {
-		return questionId;
+		return question;
 	}
 
 	public void setQuestion(int question) {
-		this.questionId = question;
+		this.question = question;
 	}
 
 	public int getAnswerChosen() {
@@ -67,7 +66,7 @@ public class Response {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + answerChosen;
-		result = prime * result + questionId;
+		result = prime * result + question;
 		result = prime * result + responseId;
 		return result;
 	}
@@ -83,7 +82,7 @@ public class Response {
 		Response other = (Response) obj;
 		if (answerChosen != other.answerChosen)
 			return false;
-		if (questionId != other.questionId)
+		if (question != other.question)
 			return false;
 		if (responseId != other.responseId)
 			return false;
@@ -92,7 +91,7 @@ public class Response {
 
 	@Override
 	public String toString() {
-		return "Response [responseId=" + responseId + ", question=" + questionId + ", answerChosen=" + answerChosen + "]";
+		return "Response [responseId=" + responseId + ", question=" + question + ", answerChosen=" + answerChosen + "]";
 	}
 			
 	

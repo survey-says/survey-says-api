@@ -10,13 +10,13 @@ import com.revature.repos.JunctionRepo;
 import com.revature.services.JunctionService;
 
 @Service
-public class JunctionServiceImpl implements JunctionService{
+public class JunctionServiceImpl implements JunctionService {
 	@Autowired
 	private JunctionRepo junctionRepo;
 
 	@Override
-	public Junction save (Junction p) {
-		p.setJunctionId(0);		
+	public Junction save(Junction p) {
+		p.setJunctionId(0);
 		return junctionRepo.save(p);
 	}
 
@@ -32,16 +32,16 @@ public class JunctionServiceImpl implements JunctionService{
 
 	@Override
 	public List<Junction> findBySurvey(int id) {
-		return junctionRepo.findBySurveyId(id);
+		return junctionRepo.findBySurvey(id);
 	}
 
 	@Override
 	public List<Junction> findByUser(int id) {
-		return junctionRepo.findByUserId(id);
+		return junctionRepo.findByUser(id);
 	}
 
 	@Override
 	public List<Junction> findByRole(int id) {
-		return junctionRepo.findByRoleId(id);
+		return junctionRepo.findByRole(id);
 	}
 }

@@ -39,19 +39,14 @@ public class Survey {
 	private Date closingDate;
 
 	@NotNull
-	@Column(name="status_id")
-	private int statusId;
-
-	@NotNull
-	@Column(name="privacy_id")
-	private int privacyId;
+	private int privacy;
 
 	public Survey() {
 		super();
 	}
 
 	public Survey(int surveyId, @NotNull String title, @NotNull String description, @NotNull int creator,
-			@NotNull Date dateCreated, @NotNull Date closingDate, @NotNull int status, @NotNull int privacy) {
+			@NotNull Date dateCreated, @NotNull Date closingDate, @NotNull int privacy) {
 		super();
 		this.surveyId = surveyId;
 		this.title = title;
@@ -59,8 +54,7 @@ public class Survey {
 		this.creator = creator;
 		this.dateCreated = dateCreated;
 		this.closingDate = closingDate;
-		this.statusId = status;
-		this.privacyId = privacy;
+		this.privacy = privacy;
 	}
 
 	public int getSurveyId() {
@@ -111,20 +105,12 @@ public class Survey {
 		this.closingDate = closingDate;
 	}
 
-	public int getStatus() {
-		return statusId;
-	}
-
-	public void setStatus(int status) {
-		this.statusId = status;
-	}
-
 	public int getPrivacy() {
-		return privacyId;
+		return privacy;
 	}
 
 	public void setPrivacy(int privacy) {
-		this.privacyId = privacy;
+		this.privacy = privacy;
 	}
 
 	@Override
@@ -135,8 +121,7 @@ public class Survey {
 		result = prime * result + creator;
 		result = prime * result + ((dateCreated == null) ? 0 : dateCreated.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + privacyId;
-		result = prime * result + statusId;
+		result = prime * result + privacy;
 		result = prime * result + surveyId;
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
@@ -168,9 +153,7 @@ public class Survey {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (privacyId != other.privacyId)
-			return false;
-		if (statusId != other.statusId)
+		if (privacy != other.privacy)
 			return false;
 		if (surveyId != other.surveyId)
 			return false;
@@ -185,8 +168,8 @@ public class Survey {
 	@Override
 	public String toString() {
 		return "Survey [surveyId=" + surveyId + ", title=" + title + ", description=" + description + ", creator="
-				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", status=" + statusId
-				+ ", privacy=" + privacyId + "]";
+				+ creator + ", dateCreated=" + dateCreated + ", closingDate=" + closingDate + ", privacy=" + privacy
+				+ "]";
 	}
 
 }

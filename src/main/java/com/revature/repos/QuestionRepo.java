@@ -7,7 +7,7 @@ import com.revature.model.Question;
 
 public interface QuestionRepo extends JpaRepository<Question, Integer> {
 
-	List<Question> findBySurveyId(int id);
+	List<Question> findBySurvey(int id);
 
-	List<Question> findByTypeId(int id);
+	List<Question> findByType(int id);
 }

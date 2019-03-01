@@ -18,29 +18,29 @@ public class Junction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "junction_id")
 	private int junctionId;
-		
+
 	@NotNull
-	@Column(name = "survey_id")
-	private int surveyId;
-	
+	@Column(name = "survey")
+	private int survey;
+
 	@NotNull
-	@Column(name = "user_id")
-	private int userId;
-	
+	@Column(name = "survey_user")
+	private int user;
+
 	@NotNull
-	@Column(name = "role_id")
-	private int roleId;
-	
+	@Column(name = "survey_role")
+	private int role;
+
 	public Junction() {
 		super();
 	}
 
-	public Junction(int junctionId, @NotNull int surveyId, @NotNull int userId, @NotNull int roleId) {
+	public Junction(int junctionId, @NotNull int survey, @NotNull int user, @NotNull int role) {
 		super();
 		this.junctionId = junctionId;
-		this.surveyId = surveyId;
-		this.userId = userId;
-		this.roleId = roleId;
+		this.survey = survey;
+		this.user = user;
+		this.role = role;
 	}
 
 	public int getJunctionId() {
@@ -51,28 +51,28 @@ public class Junction {
 		this.junctionId = junctionId;
 	}
 
-	public int getSurveyId() {
-		return surveyId;
+	public int getSurvey() {
+		return survey;
 	}
 
-	public void setSurveyId(int surveyId) {
-		this.surveyId = surveyId;
+	public void setSurvey(int survey) {
+		this.survey = survey;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(int user) {
+		this.user = user;
 	}
 
-	public int getRoleId() {
-		return roleId;
+	public int getRole() {
+		return role;
 	}
 
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+	public void setRole(int role) {
+		this.role = role;
 	}
 
 	@Override
@@ -80,9 +80,9 @@ public class Junction {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + junctionId;
-		result = prime * result + roleId;
-		result = prime * result + surveyId;
-		result = prime * result + userId;
+		result = prime * result + role;
+		result = prime * result + survey;
+		result = prime * result + user;
 		return result;
 	}
 
@@ -97,22 +97,18 @@ public class Junction {
 		Junction other = (Junction) obj;
 		if (junctionId != other.junctionId)
 			return false;
-		if (roleId != other.roleId)
+		if (role != other.role)
 			return false;
-		if (surveyId != other.surveyId)
+		if (survey != other.survey)
 			return false;
-		if (userId != other.userId)
+		if (user != other.user)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Junction [junctionId=" + junctionId + ", surveyId=" + surveyId + ", userId=" + userId + ", roleId="
-				+ roleId + "]";
+		return "Junction [junctionId=" + junctionId + ", survey=" + survey + ", user=" + user + ", role=" + role + "]";
 	}
 
-	
 }
-	
-	

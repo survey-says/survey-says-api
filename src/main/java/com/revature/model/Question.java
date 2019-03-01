@@ -24,25 +24,23 @@ public class Question {
 	@Column(name = "question_text")
 	private String questionText;
 
-	 
 	@NotNull
-	@Column(name="survey_id")
-	private int surveyId;
+	private int survey;
 
 	@NotNull
-	@Column(name="type_id")
-	private int typeId;
+	@Column(name="question_type")
+	private int type;
 
 	public Question() {
 		super();
 	}
 
-	public Question(int questionId, @NotNull String questionText, @NotNull int surveyId, @NotNull int questionType) {
+	public Question(int questionId, @NotNull String questionText, @NotNull int survey, @NotNull int type) {
 		super();
 		this.questionId = questionId;
 		this.questionText = questionText;
-		this.surveyId = surveyId;
-		this.typeId = questionType;
+		this.survey = survey;
+		this.type = type;
 	}
 
 	public int getQuestionId() {
@@ -61,20 +59,20 @@ public class Question {
 		this.questionText = questionText;
 	}
 
-	public int getSurveyId() {
-		return surveyId;
+	public int getSurvey() {
+		return survey;
 	}
 
-	public void setSurveyId(int surveyId) {
-		this.surveyId = surveyId;
+	public void setSurvey(int survey) {
+		this.survey = survey;
 	}
 
-	public int getQuestionType() {
-		return typeId;
+	public int getType() {
+		return type;
 	}
 
-	public void setQuestionType(int questionType) {
-		this.typeId = questionType;
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	@Override
@@ -83,8 +81,8 @@ public class Question {
 		int result = 1;
 		result = prime * result + questionId;
 		result = prime * result + ((questionText == null) ? 0 : questionText.hashCode());
-		result = prime * result + typeId;
-		result = prime * result + surveyId;
+		result = prime * result + survey;
+		result = prime * result + type;
 		return result;
 	}
 
@@ -104,16 +102,17 @@ public class Question {
 				return false;
 		} else if (!questionText.equals(other.questionText))
 			return false;
-		if (typeId != other.typeId)
+		if (survey != other.survey)
 			return false;
-		if (surveyId != other.surveyId)
+		if (type != other.type)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Question [questionId=" + questionId + ", questionText=" + questionText + ", surveyId=" + surveyId
-				+ ", questionType=" + typeId + "]";
+		return "Question [questionId=" + questionId + ", questionText=" + questionText + ", survey=" + survey
+				+ ", type=" + type + "]";
 	}
+
 }

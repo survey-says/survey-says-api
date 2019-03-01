@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.revature.model.AnswerChoice;
 
 public interface AnswerChoiceRepo extends JpaRepository<AnswerChoice, Integer> {
-	List<AnswerChoice> findByQuestionId(int id);
+	List<AnswerChoice> findByQuestion(int id);
 }

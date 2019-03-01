@@ -24,18 +24,17 @@ public class AnswerChoice {
 	private String answerText;
 
 	@NotNull
-	@Column(name = "question_id")
-	private int questionId;
+	private int question;
 
 	public AnswerChoice() {
 		super();
 	}
 
-	public AnswerChoice(int choiceId, @NotNull String answerText, @NotNull int questionId) {
+	public AnswerChoice(int choiceId, @NotNull String answerText, @NotNull int question) {
 		super();
 		this.choiceId = choiceId;
 		this.answerText = answerText;
-		this.questionId = questionId;
+		this.question = question;
 	}
 
 	public int getChoiceId() {
@@ -54,12 +53,12 @@ public class AnswerChoice {
 		this.answerText = answerText;
 	}
 
-	public int getQuestionId() {
-		return questionId;
+	public int getQuestion() {
+		return question;
 	}
 
-	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
+	public void setQuestion(int question) {
+		this.question = question;
 	}
 
 	@Override
@@ -68,7 +67,7 @@ public class AnswerChoice {
 		int result = 1;
 		result = prime * result + ((answerText == null) ? 0 : answerText.hashCode());
 		result = prime * result + choiceId;
-		result = prime * result + questionId;
+		result = prime * result + question;
 		return result;
 	}
 
@@ -88,14 +87,14 @@ public class AnswerChoice {
 			return false;
 		if (choiceId != other.choiceId)
 			return false;
-		if (questionId != other.questionId)
+		if (question != other.question)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "AnswerChoice [choiceId=" + choiceId + ", answerText=" + answerText + ", questionId=" + questionId + "]";
+		return "AnswerChoice [choiceId=" + choiceId + ", answerText=" + answerText + ", question=" + question + "]";
 	}
 
 }

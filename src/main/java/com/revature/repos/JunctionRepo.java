@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.revature.model.Junction;
 
 public interface JunctionRepo extends JpaRepository<Junction, Integer>{
-	List<Junction> findBySurveyId(int id);
-	List<Junction> findByUserId(int id);
-	List<Junction> findByRoleId(int id);
+	List<Junction> findBySurvey(int id);
+	List<Junction> findByUser(int id);
+	List<Junction> findByRole(int id);
 }
