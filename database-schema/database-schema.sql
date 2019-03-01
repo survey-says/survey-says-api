@@ -75,7 +75,6 @@ create table answer_choice
 create table response
 (	
 	response_id serial primary key,
-	question int not null,
 	answer_chosen int not null
 );
 
@@ -123,11 +122,6 @@ foreign key (question_type) references question_type (type_id);
 -- Link the question to the answer choices
 alter table answer_choice
 add constraint fk_answer_choice
-foreign key (question) references question (question_id);
-
--- Link the question to the responses
-alter table response
-add constraint fk_response_to_question
 foreign key (question) references question (question_id);
 
 -- Link the answer_choice to the responses
@@ -308,126 +302,126 @@ insert into answer_choice (answer_text, question)
 values('5', 8);
 
 -- Insert responses for question 1 (Favorite Food)
-insert into response (question, answer_chosen) 
-values(1, 2);
-insert into response (question, answer_chosen) 
-values(1, 4);
-insert into response (question, answer_chosen) 
-values(1, 8);
-insert into response (question, answer_chosen) 
-values(1, 1);
-insert into response (question, answer_chosen) 
-values(1, 4);
-insert into response (question, answer_chosen) 
-values(1, 7);
-insert into response (question, answer_chosen) 
-values(1, 4);
-insert into response (question, answer_chosen) 
-values(1, 1);
-insert into response (question, answer_chosen) 
-values(1, 5);
-insert into response (question, answer_chosen) 
-values(1, 4);
-insert into response (question, answer_chosen) 
-values(1, 2);
-insert into response (question, answer_chosen) 
-values(1, 4);
-insert into response (question, answer_chosen) 
-values(1, 6);
+insert into response (answer_chosen) 
+values(2);
+insert into response (answer_chosen) 
+values(4);
+insert into response (answer_chosen) 
+values(8);
+insert into response (answer_chosen) 
+values(1);
+insert into response (answer_chosen) 
+values(4);
+insert into response (answer_chosen) 
+values(7);
+insert into response (answer_chosen) 
+values(4);
+insert into response (answer_chosen) 
+values(1);
+insert into response (answer_chosen) 
+values(5);
+insert into response (answer_chosen) 
+values(4);
+insert into response (answer_chosen) 
+values(2);
+insert into response (answer_chosen) 
+values(4);
+insert into response (answer_chosen) 
+values(6);
 
 -- Insert responses for question 2 (Do you like Mangos)
-insert into response (question, answer_chosen) 
-values(2, 1);
-insert into response (question, answer_chosen) 
-values(2, 2);
-insert into response (question, answer_chosen) 
-values(2, 1);
-insert into response (question, answer_chosen) 
-values(2, 3);
-insert into response (question, answer_chosen) 
-values(2, 1);
+insert into response (answer_chosen) 
+values(11);
+insert into response (answer_chosen) 
+values(12);
+insert into response (answer_chosen) 
+values(11);
+insert into response (answer_chosen) 
+values(13);
+insert into response (answer_chosen) 
+values(11);
 
 -- Insert responses for question 3 (I love pizza)
-insert into response (question, answer_chosen) 
-values(3, 1);
-insert into response (question, answer_chosen) 
-values(3, 6);
-insert into response (question, answer_chosen) 
-values(3, 5);
-insert into response (question, answer_chosen) 
-values(3, 2);
-insert into response (question, answer_chosen) 
-values(3, 1);
-insert into response (question, answer_chosen) 
-values(3, 2);
-insert into response (question, answer_chosen) 
-values(3, 3);
-insert into response (question, answer_chosen) 
-values(3, 2);
+insert into response (answer_chosen) 
+values(14);
+insert into response (answer_chosen) 
+values(16);
+insert into response (answer_chosen) 
+values(15);
+insert into response (answer_chosen) 
+values(18);
+insert into response (answer_chosen) 
+values(14);
+insert into response (answer_chosen) 
+values(15);
+insert into response (answer_chosen) 
+values(18);
+insert into response (answer_chosen) 
+values(16);
 
 -- Insert responses for question 5 (Do you like Tampa)
-insert into response (question, answer_chosen) 
-values(5, 1);
-insert into response (question, answer_chosen) 
-values(5, 2);
-insert into response (question, answer_chosen) 
-values(5, 1);
-insert into response (question, answer_chosen) 
-values(5, 1);
-insert into response (question, answer_chosen) 
-values(5, 3);
+insert into response (answer_chosen) 
+values(19);
+insert into response (answer_chosen) 
+values(20);
+insert into response (answer_chosen) 
+values(19);
+insert into response (answer_chosen) 
+values(19);
+insert into response (answer_chosen) 
+values(21);
 
 -- Insert responses for question 6 (Favorite City)
-insert into response (question, answer_chosen) 
-values(6, 1);
-insert into response (question, answer_chosen) 
-values(6, 3);
-insert into response (question, answer_chosen) 
-values(6, 5);
-insert into response (question, answer_chosen) 
-values(6, 7);
-insert into response (question, answer_chosen) 
-values(6, 3);
-insert into response (question, answer_chosen) 
-values(6, 2);
-insert into response (question, answer_chosen) 
-values(6, 10);
-insert into response (question, answer_chosen) 
-values(6, 5);
-insert into response (question, answer_chosen) 
-values(6, 2);
-insert into response (question, answer_chosen) 
-values(6, 11);
+insert into response (answer_chosen) 
+values(22);
+insert into response (answer_chosen) 
+values(30);
+insert into response (answer_chosen) 
+values(25);
+insert into response (answer_chosen) 
+values(27);
+insert into response (answer_chosen) 
+values(23);
+insert into response (answer_chosen) 
+values(28);
+insert into response (answer_chosen) 
+values(31);
+insert into response (answer_chosen) 
+values(25);
+insert into response (answer_chosen) 
+values(29);
+insert into response (answer_chosen) 
+values(32);
 
 -- Insert responses for question 7 (I like cities)
-insert into response (question, answer_chosen) 
-values(7, 1);
-insert into response (question, answer_chosen) 
-values(7, 2);
-insert into response (question, answer_chosen) 
-values(7, 6);
-insert into response (question, answer_chosen) 
-values(7, 3);
-insert into response (question, answer_chosen) 
-values(7, 1);
-insert into response (question, answer_chosen) 
-values(7, 1);
-insert into response (question, answer_chosen) 
-values(7, 2);
-insert into response (question, answer_chosen) 
-values(7, 4);
+insert into response (answer_chosen) 
+values(35);
+insert into response (answer_chosen) 
+values(36);
+insert into response (answer_chosen) 
+values(37);
+insert into response (answer_chosen) 
+values(35);
+insert into response (answer_chosen) 
+values(34);
+insert into response (answer_chosen) 
+values(38);
+insert into response (answer_chosen) 
+values(34);
+insert into response (answer_chosen) 
+values(34);
 
 -- Insert responses for question 7 (Tampa Ratings)
-insert into response (question, answer_chosen) 
-values(8, 1);
-insert into response (question, answer_chosen) 
-values(8, 2);
-insert into response (question, answer_chosen) 
-values(8, 1);
-insert into response (question, answer_chosen) 
-values(8, 4);
-insert into response (question, answer_chosen) 
-values(8, 1);
+insert into response (answer_chosen) 
+values(39);
+insert into response (answer_chosen) 
+values(42);
+insert into response (answer_chosen) 
+values(41);
+insert into response (answer_chosen) 
+values(43);
+insert into response (answer_chosen) 
+values(41);
 
 -- Add the user-survey-roles
 insert into role_junction (survey, survey_user, survey_role)

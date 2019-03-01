@@ -32,11 +32,6 @@ public class ResponseController {
 		return responseService.findById(id);
 	}
 
-	@GetMapping("/question/{id}")
-	public List<Response> findByQuestion(@PathVariable int id) {
-		return responseService.findByQuestion(id);
-	}
-
 	@PostMapping
 	public Response save(@Valid @RequestBody Response r) {
 		return responseService.save(r);

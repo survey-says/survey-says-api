@@ -18,22 +18,18 @@ public class Response {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "response_id")
 	private int responseId;
-	
+
 	@NotNull
-	private int question;
-	
-	@NotNull
-	@Column(name="answer_chosen")
+	@Column(name = "answer_chosen")
 	private int answerChosen;
 
 	public Response() {
 		super();
 	}
 
-	public Response(int responseId, @NotNull int question, @NotNull int answerChosen) {
+	public Response(int responseId, @NotNull int answerChosen) {
 		super();
 		this.responseId = responseId;
-		this.question = question;
 		this.answerChosen = answerChosen;
 	}
 
@@ -43,14 +39,6 @@ public class Response {
 
 	public void setResponseId(int responseId) {
 		this.responseId = responseId;
-	}
-
-	public int getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(int question) {
-		this.question = question;
 	}
 
 	public int getAnswerChosen() {
@@ -66,7 +54,6 @@ public class Response {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + answerChosen;
-		result = prime * result + question;
 		result = prime * result + responseId;
 		return result;
 	}
@@ -82,8 +69,6 @@ public class Response {
 		Response other = (Response) obj;
 		if (answerChosen != other.answerChosen)
 			return false;
-		if (question != other.question)
-			return false;
 		if (responseId != other.responseId)
 			return false;
 		return true;
@@ -91,10 +76,7 @@ public class Response {
 
 	@Override
 	public String toString() {
-		return "Response [responseId=" + responseId + ", question=" + question + ", answerChosen=" + answerChosen + "]";
+		return "Response [responseId=" + responseId + ", answerChosen=" + answerChosen + "]";
 	}
-			
-	
+
 }
-	
-	

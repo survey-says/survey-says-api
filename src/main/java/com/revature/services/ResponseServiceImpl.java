@@ -20,11 +20,6 @@ public class ResponseServiceImpl implements ResponseService {
 	}
 
 	@Override
-	public List<Response> findByQuestion(int id) {
-		return responseRepo.findByQuestion(id);
-	}
-
-	@Override
 	public Response findById(int id) {
 		return responseRepo.getOne(id);
 	}
