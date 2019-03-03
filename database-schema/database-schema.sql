@@ -175,6 +175,16 @@ insert into survey (creator, title, description, date_created, closing_date, pri
 values (4, 'Favorite Foods', 'A survey to determine the favorite foods of survey-takers', '2019/2/18', '2019/2/26', 1);
 insert into survey (creator, title, description, date_created, closing_date, privacy)
 values (1, 'City Preferences', 'A survey to determine which cities are most desirable', '2019/2/25', '2019/3/19', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (1, 'Study Habits', 'A survey for the study habits of university students', '2019/2/28', '2019/3/5', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (1, 'Favorite Operating System', 'Questions regarding the primary operating system used on various devices', '2019/2/6', '2019/2/14', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (2, 'Transporation Prefences', 'Methods of transportation used by survey-takers', '2019/1/10', '2019/1/15', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (2, 'Clothing Styles', 'A survey for clothing styles', '2019/2/10', '2019/4/10', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (3, 'Favorite Beverages', 'Which beverages are most popular and most commonly known', '2019/2/6', '2019/3/6', 1);
 
 
 -- Add questions to survey 1 (Favorite Food)
