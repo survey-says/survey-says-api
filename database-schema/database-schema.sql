@@ -309,7 +309,7 @@ values('Disagree', 7);
 insert into answer_choice (answer_text, question)
 values('Strongly Disagree', 7);
 
--- Question 7 (Survey 2, City Preferences)
+-- Question 8 (Survey 2, City Preferences)
 insert into answer_choice (answer_text, question)
 values('1', 8);
 insert into answer_choice (answer_text, question)
@@ -379,6 +379,14 @@ values(18);
 insert into response (answer_chosen) 
 values(16);
 
+-- Insert feedback responses for Question 4 (Survey 1, Underrated Foods)
+insert into answer_choice (answer_text, question)
+values('Brussels Sprouts', 4);
+insert into answer_choice (answer_text, question)
+values('Sardines', 4);
+insert into answer_choice (answer_text, question)
+values('Bananas', 4);
+
 -- Insert responses for question 5 (Do you like Tampa)
 insert into response (answer_chosen) 
 values(19);
@@ -442,6 +450,16 @@ insert into response (answer_chosen)
 values(43);
 insert into response (answer_chosen) 
 values(41);
+
+-- Insert Feedback responses for Question 9 (Survey 2, Other favorite cities)
+insert into answer_choice (answer_text, question)
+values('Honolulu', 9);
+insert into answer_choice (answer_text, question)
+values('Saigon', 9);
+insert into answer_choice (answer_text, question)
+values('Manila', 9);
+insert into answer_choice (answer_text, question)
+values('Shanghai', 9);
 
 -- Add the user-survey-roles
 insert into role_junction (survey, survey_user, survey_role)
