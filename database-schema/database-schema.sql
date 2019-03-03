@@ -184,7 +184,17 @@ values (2, 'Transporation Prefences', 'Methods of transportation used by survey-
 insert into survey (creator, title, description, date_created, closing_date, privacy)
 values (2, 'Clothing Styles', 'A survey for clothing styles', '2019/2/10', '2019/4/10', 1);
 insert into survey (creator, title, description, date_created, closing_date, privacy)
-values (3, 'Favorite Beverages', 'Which beverages are most popular and most commonly known', '2019/2/6', '2019/3/6', 1);
+values (2, 'Favorite Beverages', 'Which beverages are most popular and most commonly known', '2019/2/6', '2019/3/5', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (3, 'Air travel', 'Everything from airline preferences to travel desires', '2019/2/16', '2019/3/7', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (3, 'Vacation destinations', 'A survey to learn about your favorite places to get away and relax', '2019/1/18', '2019/2/20', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (3, 'Exotic Foods', 'Have you tried the most exotic and unique foods from around the world?', '2019/1/4', '2019/3/5', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (4, 'Favorite animals', 'Which animals are your favorites as pets and to see in the wild', '2019/3/3', '2019/3/20', 1);
+insert into survey (creator, title, description, date_created, closing_date, privacy)
+values (4, 'Languages', 'A survey about languages', '2019/2/5', '2019/3/5', 1);
 
 
 -- Add questions to survey 1 (Favorite Food)
@@ -299,7 +309,7 @@ values('Disagree', 7);
 insert into answer_choice (answer_text, question)
 values('Strongly Disagree', 7);
 
--- Question 7 (Survey 2, City Preferences)
+-- Question 8 (Survey 2, City Preferences)
 insert into answer_choice (answer_text, question)
 values('1', 8);
 insert into answer_choice (answer_text, question)
@@ -369,6 +379,14 @@ values(18);
 insert into response (answer_chosen) 
 values(16);
 
+-- Insert feedback responses for Question 4 (Survey 1, Underrated Foods)
+insert into answer_choice (answer_text, question)
+values('Brussels Sprouts', 4);
+insert into answer_choice (answer_text, question)
+values('Sardines', 4);
+insert into answer_choice (answer_text, question)
+values('Bananas', 4);
+
 -- Insert responses for question 5 (Do you like Tampa)
 insert into response (answer_chosen) 
 values(19);
@@ -433,28 +451,158 @@ values(43);
 insert into response (answer_chosen) 
 values(41);
 
+-- Insert Feedback responses for Question 9 (Survey 2, Other favorite cities)
+insert into answer_choice (answer_text, question)
+values('Honolulu', 9);
+insert into answer_choice (answer_text, question)
+values('Saigon', 9);
+insert into answer_choice (answer_text, question)
+values('Manila', 9);
+insert into answer_choice (answer_text, question)
+values('Shanghai', 9);
+
 -- Add the user-survey-roles
 insert into role_junction (survey, survey_user, survey_role)
 values(1, 1, 2);
 insert into role_junction (survey, survey_user, survey_role)
-values(2, 1, 2);
+values(2, 1, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(3, 1, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(4, 1, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(5, 1, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(6, 1, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(7, 1, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(8, 1, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(9, 1, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(10, 1, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(11, 1, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(12, 1, 2);
 insert into role_junction (survey, survey_user, survey_role)
 values(1, 2, 2);
 insert into role_junction (survey, survey_user, survey_role)
 values(2, 2, 2);
 insert into role_junction (survey, survey_user, survey_role)
+values(3, 2, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(4, 2, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(5, 2, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(6, 2, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(7, 2, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(8, 2, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(9, 2, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(10, 2, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(11, 2, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(12, 2, 2);
+insert into role_junction (survey, survey_user, survey_role)
 values(1, 3, 2);
 insert into role_junction (survey, survey_user, survey_role)
 values(2, 3, 2);
 insert into role_junction (survey, survey_user, survey_role)
-values(1, 4, 2);
+values(3, 3, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(4, 3, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(5, 3, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(6, 3, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(7, 3, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(8, 3, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(9, 3, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(10, 3, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(11, 3, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(12, 3, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(1, 4, 1);
 insert into role_junction (survey, survey_user, survey_role)
 values(2, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(3, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(4, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(5, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(6, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(7, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(8, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(9, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(10, 4, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(11, 4, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(12, 4, 1);
 insert into role_junction (survey, survey_user, survey_role)
 values(1, 5, 1);
 insert into role_junction (survey, survey_user, survey_role)
 values(2, 5, 1);
 insert into role_junction (survey, survey_user, survey_role)
+values(3, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(4, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(5, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(6, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(7, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(8, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(9, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(10, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(11, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
+values(12, 5, 1);
+insert into role_junction (survey, survey_user, survey_role)
 values(1, 6, 2);
 insert into role_junction (survey, survey_user, survey_role)
 values(2, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(3, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(4, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(5, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(6, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(7, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(8, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(9, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(10, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(11, 6, 2);
+insert into role_junction (survey, survey_user, survey_role)
+values(12, 6, 2);
