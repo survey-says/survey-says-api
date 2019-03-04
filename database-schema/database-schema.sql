@@ -205,7 +205,7 @@ values ('Are you a fan of Mango?', 1, 2);
 insert into question (question_text, survey, question_type)
 values ('I love pizza!', 1, 3);
 insert into question (question_text, survey, question_type)
-values ('What type of food do you want to think is underrated?', 1, 5);
+values ('What type of food do you think is underrated?', 1, 5);
 
 -- Add questions for survey 2 (City Preferences)
 insert into question (question_text, survey, question_type)
@@ -360,6 +360,20 @@ insert into response (answer_chosen)
 values(13);
 insert into response (answer_chosen) 
 values(11);
+insert into response (answer_chosen) 
+values(11);
+insert into response (answer_chosen) 
+values(11);
+insert into response (answer_chosen) 
+values(11);
+insert into response (answer_chosen) 
+values(11);
+insert into response (answer_chosen) 
+values(12);
+insert into response (answer_chosen) 
+values(12);
+insert into response (answer_chosen) 
+values(12);
 
 -- Insert responses for question 3 (I love pizza)
 insert into response (answer_chosen) 
@@ -378,6 +392,18 @@ insert into response (answer_chosen)
 values(18);
 insert into response (answer_chosen) 
 values(16);
+insert into response (answer_chosen) 
+values(14);
+insert into response (answer_chosen) 
+values(14);
+insert into response (answer_chosen) 
+values(14);
+insert into response (answer_chosen) 
+values(14);
+insert into response (answer_chosen) 
+values(15);
+insert into response (answer_chosen) 
+values(15);
 
 -- Insert feedback responses for Question 4 (Survey 1, Underrated Foods)
 insert into answer_choice (answer_text, question)
@@ -398,6 +424,14 @@ insert into response (answer_chosen)
 values(19);
 insert into response (answer_chosen) 
 values(21);
+insert into response (answer_chosen) 
+values(19);
+insert into response (answer_chosen) 
+values(19);
+insert into response (answer_chosen) 
+values(19);
+insert into response (answer_chosen) 
+values(19);
 
 -- Insert responses for question 6 (Favorite City)
 insert into response (answer_chosen) 
@@ -450,6 +484,14 @@ insert into response (answer_chosen)
 values(43);
 insert into response (answer_chosen) 
 values(41);
+insert into response (answer_chosen) 
+values(39);
+insert into response (answer_chosen) 
+values(39);
+insert into response (answer_chosen) 
+values(39);
+insert into response (answer_chosen) 
+values(39);
 
 -- Insert Feedback responses for Question 9 (Survey 2, Other favorite cities)
 insert into answer_choice (answer_text, question)
